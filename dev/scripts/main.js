@@ -20,6 +20,10 @@
 
 const app = {}
 
+const heroObject = []
+
+let searchValue = $('input[type=search]').val();
+
 app.apiURL = 'https://overwatch-api.net/api/v1/hero?page=1'
 
 app.getHero = (query) => {
@@ -31,51 +35,61 @@ app.getHero = (query) => {
          format:'json',
          name: query,
       }
-   }).then((res)=> {
+   })
+
+   .then((res)=> {
       // console.log(res);
       // console.log(res.data);
       app.displayHero(res.data);
    });
-};
+}
+
+app.hero = () => {
+}
 
 
 app.displayHero = (hero) => {
    // console.log(hero);
    // empty the container so we don't append doubled results
-   $('.hero__container').empty();
-
+    $('.hero__container').empty();
    // filters the API array so that we get each hero object
-   hero.filter((heroStats) => heroStats.health > 0)
+    hero.filter((heroStats) => heroStats.health > 0)
+    
+
    // for each hero, we create the h1 to hold the hero name
    .forEach((heroStats) => {
-      // console.log(heroStats);
-      // we append the name to the hero container
-      const heroResults = $('<div>').addClass('heroResults')
-      const heroName = $('<h1>').text(heroStats.name)
-      heroResults.append(heroName)
-      $('.hero__container').append(heroResults);
-   });
-};
+//         // we append the name to the hero container
+//         heroInfo.push(heroStats.name);
+//         console.log(heroInfo);
+      heroObject.push(heroStats);
+      // console.log(heroStats)
+      // console.log(heroInfo);
+      
+    })
+    // for(heroStats in hero) {
+      //     heroInfo.push(heroStats.name);
+      //     console.log(heroInfo);
+      // }
+      console.log(heroObject[0].name)
+}
 
 
-app.events = () => {
-   $('.search-form').on('submit', function(e){
-      e.preventDefault();
+app.events = () => {$('.search-form').on('submit', function(e){
+        e.preventDefault();
       // const userSearch = $(this).val();
       // console.log(userSearch);
-      const searchValue = $('input[type=search]').val();
-      app.getHero(searchValue);
+    //   const searchValue = $('input[type=search]').val();
+        app.getHero(searchValue);
       // console.log(searchValue);
-   });
-};
+   })
+}
 
 
 app.init = function() {
    console.log("It's working");
    app.getHero();
-   app.displayHero();
    app.events();
-};
+}
 
 $(function () {
    app.init();
