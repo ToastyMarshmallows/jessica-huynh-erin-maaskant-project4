@@ -17,3 +17,68 @@
 
 // Stretch - on the click of hero's base of operations, display hero location with google maps API
    // second search method - display pinpoints of hero's base of operations on a world map, when the user click's the pin, display hero information 
+
+const app = {}
+
+app.apiURL = 'https://overwatch-api.net/api/v1/hero?page=1'
+
+app.getHero = (query) => {
+   $.ajax({
+      url: app.apiURL,
+      method: 'GET',
+      dataType: 'json',
+      data: {
+         format:'json',
+         name: query,
+      }
+   }).then((res)=> {
+      // console.log(res);
+      // console.log(res.data);
+      app.displayHero(res.data);
+   });
+};
+
+
+app.displayHero = (hero) => {
+   // console.log(hero);
+   // empty the container so we don't append doubled results
+   $('.hero__container').empty();
+
+   // filters the API array so that we get each hero object
+   hero.filter((heroStats) => heroStats.health > 0)
+   // for each hero, we create the h1 to hold the hero name
+   .forEach((heroStats) => {
+      // console.log(heroStats);
+      // we append the name to the hero container
+      const heroResults = $('<div>').addClass('heroResults')
+      const heroName = $('<h1>').text(heroStats.name)
+      heroResults.append(heroName)
+      $('.hero__container').append(heroResults);
+   });
+};
+
+
+app.events = () => {
+   $('.search-form').on('submit', function(e){
+      e.preventDefault();
+      // const userSearch = $(this).val();
+      // console.log(userSearch);
+      const searchValue = $('input[type=search]').val();
+      app.getHero(searchValue);
+      // console.log(searchValue);
+   });
+};
+
+
+app.init = function() {
+   console.log("It's working");
+   app.getHero();
+   app.displayHero();
+   app.events();
+};
+
+$(function () {
+   app.init();
+
+});
+
