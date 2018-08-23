@@ -16,4 +16,14 @@ main {
         height: 400px;
         border: 1px solid red;
     }
+    // background:pink;
+}
+
+input[type=search] {
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-bottom:1px solid grey;
+    background:transparent;
+    padding:10px;
 }
