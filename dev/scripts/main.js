@@ -21,81 +21,71 @@
 const app = {}
 app.heroInfo = {}
 
-// let searchValue = $('input[type=search]').val();
+let searchValue = $('input[type=search]').val();
 
 app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 
 app.getHero = () => {
 	$.ajax({
 		url: app.apiURL,
-      	method: 'GET',
-      	dataType: 'json',
-      	data: {
-			 format:'json',
-      }
-   })
-   .then((res)=> {
-		// console.log(res);
-		// console.log(res.data);
-		app.displayHero(res.data);
-	   	// console.log(res.data);
-		
-   });
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			format: 'json',
+		}
+	})
+		.then((res) => {
+			// console.log(res);
+			// console.log(res.data);
+			app.displayHero(res.data);
+			// console.log(res.data);
+
+		});
 	$('.hero__card').empty();
 }
 
 
+// ------------------------------
 app.displayHero = (hero) => {
 	$('.hero__card').empty();
-	// console.log(hero)
-	
-	hero.filter((heroType)=> heroType.name === searchValue)
-	// hero.forEach((heroType)=>{
-	// 	console.log(heroType.name)
-	.forEach((heroType)=>{
-		const selectHero = $(`<ul>`).addClass('hero__card');
-		const heroName = $(`<li>Name: ${heroType.name}</li>`);
-		const realName = $(`<li>Real Name: ${heroType.real_name}</li>`);
-		const age = $(`<li>Age: ${heroType.age}</li>`);
-		const height = $(`<li>Height: ${heroType.height}</li>`);
-		const base = $(`<li>Base of Operations: ${heroType.base_of_operations}</li>`);
-		const affl = $(`<li>Affiliation: ${heroType.affiliation}</li>`);
-		const health = $(`<li>Health: ${heroType.health}</li>`);
-		const armour = $(`<li>Armour: ${heroType.armour}</li>`);
-		const shield = $(`<li>Shield: ${heroType.shield}</li>`);
-		// console.log(heroType)
-		selectHero.append(heroName,realName, age, height, base, affl, health, armour, shield)
-		$('.hero__container').append(selectHero)
-		// selectHero.append(heroName, realName);
-	});
 
+	hero.filter((heroType) => heroType.name === searchValue || heroType.affiliation === searchValue || heroType.health >= searchValue || heroType.base_of_operations === searchValue)
+
+		.forEach((heroType) => {
+			const selectHero = $(`<ul>`).addClass('hero__card');
+			const heroName = $(`<li>Name: ${heroType.name}</li>`);
+			const realName = $(`<li>Real Name: ${heroType.real_name}</li>`);
+			const age = $(`<li>Age: ${heroType.age}</li>`);
+			const height = $(`<li>Height: ${heroType.height}</li>`);
+			const base = $(`<li>Base of Operations: ${heroType.base_of_operations}</li>`);
+			const affl = $(`<li>Affiliation: ${heroType.affiliation}</li>`);
+			const health = $(`<li>Health: ${heroType.health}</li>`);
+			const armour = $(`<li>Armour: ${heroType.armour}</li>`);
+			const shield = $(`<li>Shield: ${heroType.shield}</li>`);
+
+			selectHero.append(heroName, realName, age, height, base, affl, health, armour, shield)
+			$('.hero__container').append(selectHero)
+		});
 }
-// -------------------------
-app.events = () => {
-    $('.search-form').on('submit', function (event) {
-        event.preventDefault();
-
-        // NEED TO MAKE THIS SEARCH CASE INSENSITIVE //
-        const searchValue = $('input[type=search]').val();
+// ------------------------------
 
 app.events = () => {
-	$('.search-form').on('submit', function(e){
+	$('.search-form').on('submit', function (e) {
 		e.preventDefault();
 		searchValue = $('input[type=search]').val();
 		app.getHero(searchValue)
 		console.log(searchValue);
-
-    })
+	})
 }
 
 
-app.init = function() {
+app.init = function () {
 	console.log("It's working");
 	app.getHero();
 	app.events();
 }
+
 $(function () {
 	app.init();
 
 });
-
