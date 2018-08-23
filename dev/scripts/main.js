@@ -19,80 +19,87 @@
    // second search method - display pinpoints of hero's base of operations on a world map, when the user click's the pin, display hero information 
 
 const app = {}
+app.heroInfo = {}
 
-const heroObject = []
+const heroId = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+
+// const heroObject = []
 
 let searchValue = $('input[type=search]').val();
 
-app.apiURL = 'https://overwatch-api.net/api/v1/hero?page=1'
+app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 
-app.getHero = (query) => {
-   $.ajax({
-      url: app.apiURL,
-      method: 'GET',
-      dataType: 'json',
-      data: {
-         format:'json',
-         name: query,
+app.getHero = () => {
+	$.ajax({
+		url: app.apiURL,
+      	method: 'GET',
+      	dataType: 'json',
+      	data: {
+			 format:'json',
       }
    })
-
    .then((res)=> {
-      // console.log(res);
-      // console.log(res.data);
-      app.displayHero(res.data);
+		// console.log(res);
+		// console.log(res.data);
+		app.displayHero(res.data);
+	   	// console.log(res.data);
+		
    });
+	$('.hero__card').empty();
 }
+
+
 
 app.hero = () => {
-}
 
+}
 
 app.displayHero = (hero) => {
-   // console.log(hero);
-   // empty the container so we don't append doubled results
-    $('.hero__container').empty();
-   // filters the API array so that we get each hero object
-    hero.filter((heroStats) => heroStats.health > 0)
-    
+	$('.hero__card').empty();
+	// console.log(hero)
+	
+	hero.filter((heroType)=> heroType.name === searchValue)
+	// hero.forEach((heroType)=>{
+	// 	console.log(heroType.name)
+	.forEach((heroType)=>{
+		const selectHero = $(`<ul>`).addClass('hero__card');
+		const heroName = $(`<li>Name: ${heroType.name}</li>`);
+		const realName = $(`<li>Real Name: ${heroType.real_name}</li>`);
+		const age = $(`<li>Age: ${heroType.age}</li>`);
+		const height = $(`<li>Height: ${heroType.height}</li>`);
+		const base = $(`<li>Base of Operations: ${heroType.base_of_operations}</li>`);
+		const affl = $(`<li>Affiliation: ${heroType.affiliation}</li>`);
+		const health = $(`<li>Health: ${heroType.health}</li>`);
+		const armour = $(`<li>Armour: ${heroType.armour}</li>`);
+		const shield = $(`<li>Shield: ${heroType.shield}</li>`);
+		// console.log(heroType)
+		selectHero.append(heroName,realName, age, height, base, affl, health, armour, shield)
+		$('.hero__container').append(selectHero)
+		// selectHero.append(heroName, realName);
+	});
 
-   // for each hero, we create the h1 to hold the hero name
-   .forEach((heroStats) => {
-//         // we append the name to the hero container
-//         heroInfo.push(heroStats.name);
-//         console.log(heroInfo);
-      heroObject.push(heroStats);
-      // console.log(heroStats)
-      // console.log(heroInfo);
-      
-    })
-    // for(heroStats in hero) {
-      //     heroInfo.push(heroStats.name);
-      //     console.log(heroInfo);
-      // }
-      console.log(heroObject[0].name)
 }
 
 
-app.events = () => {$('.search-form').on('submit', function(e){
-        e.preventDefault();
-      // const userSearch = $(this).val();
-      // console.log(userSearch);
-    //   const searchValue = $('input[type=search]').val();
-        app.getHero(searchValue);
-      // console.log(searchValue);
+app.events = () => {
+	$('.search-form').on('submit', function(e){
+		e.preventDefault();
+		searchValue = $('input[type=search]').val();
+		app.getHero(searchValue)
+		console.log(searchValue);
+
    })
 }
 
 
 app.init = function() {
-   console.log("It's working");
-   app.getHero();
-   app.events();
+	console.log("It's working");
+	app.getHero();
+	app.events();
 }
 
 $(function () {
-   app.init();
+	app.init();
 
 });
 
