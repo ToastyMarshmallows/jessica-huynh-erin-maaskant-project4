@@ -20,9 +20,9 @@
 
 const app = {}
 
-const heroInfo = []
+const heroObject = []
 
-let searchValue = $('input[type=search]').val();
+// let searchValue = $('input[type=search]').val();
 
 app.apiURL = 'https://overwatch-api.net/api/v1/hero?page=1'
 
@@ -33,61 +33,51 @@ app.getHero = (query) => {
         dataType: 'json',
         data: {
             format: 'json',
-            name: query,
+        //   name: query,
         }
     })
-
         .then((res) => {
-            // console.log(res);
-            // console.log(res.data);
-            app.displayHero(res.data);
+            app.displayHero(res.data,query);
         });
 }
-
-app.hero = () => {
-}
-
-
-app.displayHero = (hero) => {
-    // console.log(hero);
+// -------------------------
+app.displayHero = (hero,query) => {
     // empty the container so we don't append doubled results
     $('.hero__container').empty();
-    // filters the API array so that we get each hero object
-    hero.filter((heroStats) => heroStats.name === searchValue)
-
-    // for each hero, we create the h1 to hold the hero name
-    //    .for((heroStats) => {
-    //         // we append the name to the hero container
-    //         heroInfo.push(heroStats.name);
-    //         console.log(heroInfo);
-
-    //     })
-    for (heroStats in hero) {
-        heroInfo.push(heroStats.name);
-        console.log(heroInfo);
-    }
+    // filters the API array so that we get hero objects that match the filter criteria into the heroStats array
+    hero.filter((heroStats) => heroStats.name === query)
+        .forEach((heroStats) => {
+            console.log(heroStats);
+            // forEach element in the array, we create a new div., title and img to be inserted in the HTML
+            const results = $('<div>').addClass('results__content');
+            const title = $('<h2>').text(heroStats.name);
+            const affiliation = $('<h3>').text(heroStats.affiliation);
+            const desc = $('<p>').text(heroStats.description);
+            const health = $('<p>').text(heroStats.health);
+            // We append the data pieces to the new div
+            piece.append(title, health, affiliation, desc);
+            // Then append that to the RESULTS container on the page.
+            $('.results__container').append(piece);
+        })
 }
-
-
+// -------------------------
 app.events = () => {
-    $('.search-form').on('submit', function (e) {
-        e.preventDefault();
-        // const userSearch = $(this).val();
-        // console.log(userSearch);
-        //   const searchValue = $('input[type=search]').val();
+    $('.search-form').on('submit', function (event) {
+        event.preventDefault();
+
+        // NEED TO MAKE THIS SEARCH CASE INSENSITIVE //
+        const searchValue = $('input[type=search]').val();
+
         app.getHero(searchValue);
-        // console.log(searchValue);
     })
 }
-
-
+// -------------------------
+// -------------------------
 app.init = function () {
     console.log("It's working");
     app.getHero();
     app.events();
 }
-
 $(function () {
     app.init();
-
 });
