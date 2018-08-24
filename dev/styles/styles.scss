@@ -1,11 +1,26 @@
 @import 'setup';
 @import 'utils';
 @import 'header';
+@import 'main';
 @import 'footer';
 
 
+@font-face {
+    font-family: "Big Noodle Too";
+    src: url(../font/big_noodle_titling_oblique.ttf) format("truetype");
+}
+
+* {
+    margin:0;
+}
+
 body {
-    // background:pink;
+    font-family: "Big Noodle Too";
+}
+
+img {
+    width:100%;
+    display:block;
 }
 
 input[type=search] {
