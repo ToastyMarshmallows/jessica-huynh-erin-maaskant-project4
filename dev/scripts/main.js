@@ -259,13 +259,15 @@ app.events = () => {
 	$('.hero__card').on('click', '.location', function () {
 		app.displayLocation(app.searchValue);
 	})
-	$('.owLogo').on('click',function(){
+	$('.OW__Logo').on('click',function(){
 		$(this).addClass('shrink')
-		$('.login').addClass('show');
+		$('.admin__login__text').addClass('show');
 	});
 	$('.admin__login').on('submit', function (e) {
 		e.preventDefault();
-		$('.opening__overlay').hide('slow');
+		$('.admin__login__text').hide('slow');
+		$('header').addClass('fixed');
+		// $('.opening__overlay').hide('slow');
 	})
 }
 

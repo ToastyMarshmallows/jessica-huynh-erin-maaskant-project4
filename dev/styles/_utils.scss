@@ -4,5 +4,37 @@ $secondaryDark: #218ffe;
 $accentDark: #fc9e00;
 $logoGrey: #484848;
 
+$primaryFont: ;
+// $secondaryFont: 'Big Noodle Too';
 
 // $base: #43484c;
+
+@mixin breakPoint($point) {
+    @if $point == first-break {
+        @media (max-width:1300px) { @content;}
+    }
+    @if $point == second-break {
+       @media (max-width:1240px) { @content;}
+    }
+    @if $point == third-break {
+       @media (max-width:1090px) { @content;}
+    }
+    @if $point == fourth-break {
+       @media (max-width:900px) { @content;}
+    }
+    @if $point == fifth-break {
+       @media (max-width:750px) { @content;}
+    }
+      @if $point == sixth-break {
+       @media (max-width:600px) { @content;}
+    }
+      @if $point == seventh-break {
+       @media (max-width:450px) { @content;}
+}
+
+
+@mixin titleStyles($sizeValue) {
+    font-size:$sizeValue * 1px;
+    font-size:($sizeValue / 10) * 1rem;
+    font-family:$secondaryFont;
+}

@@ -1,0 +1,63 @@
+header {
+    // background:$primaryDark;
+    // border:1px solid red;
+    height:100vh;
+    z-index:100;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display:flex;
+    align-items: center;
+    transition:height 1s ease-in-out;
+    // display:none;
+    .wrapper {
+        width:100%;
+        // border:1px solid pink;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        .OW__Logo.shrink {
+            width:5%;
+        }
+        .admin__login__text {
+            // display:none;
+            opacity:0;
+            width:0px;
+            transition:width 0.5s;
+        }
+        .admin__login__text.show {
+            // display:block;
+            background:none;
+            border:none;
+            border-bottom:3px solid $white;
+            padding:10px 30px 8px 0;
+            margin:0 20px;
+            color:$white;
+            width:100%;
+            opacity:1;
+            text-transform: uppercase;
+        }
+        .admin__login__submit {
+            display:none;
+        }
+
+    }
+}
+
+header.fixed {
+    height:10vh;
+    .wrapper {
+        justify-content: flex-start;
+        padding:20px 0 0 15px;
+        // border:1px solid cyan;
+    }
+    h1 {
+        display:block;
+        opacity:1;
+        width:100%;
+        margin:0 20px;
+        text-transform: uppercase;
+    }
+}
