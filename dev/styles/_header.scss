@@ -1,5 +1,5 @@
 header {
-    // background:$primaryDark;
+    background:$primaryDark;
     // border:1px solid red;
     height:100vh;
     z-index:100;
@@ -21,33 +21,50 @@ header {
         .OW__Logo.shrink {
             width:5%;
         }
-        .admin__login__text {
-            // display:none;
+        .input__bar--text {
+            display:none;
+            // border:1px solid red;
             opacity:0;
             width:0px;
             transition:width 0.5s;
         }
-        .admin__login__text.show {
-            // display:block;
+        .input__bar.show {
+            display:block;
             background:none;
             border:none;
             border-bottom:3px solid $white;
             padding:10px 30px 8px 0;
             margin:0 20px;
-            color:$white;
+            // color:$white;
             width:100%;
             opacity:1;
             text-transform: uppercase;
         }
-        .admin__login__submit {
+        .input__submit {
             display:none;
         }
 
     }
 }
 
+.input__bar {
+    color:$white;
+}
+
+
+.search__wrapper {
+    width:50%;
+    display:none;
+    .input__bar--search {
+        border:none;
+        border-bottom:3px solid $white;
+        width:100%;
+    }
+}
+
 header.fixed {
     height:10vh;
+    background:none;
     .wrapper {
         justify-content: flex-start;
         padding:20px 0 0 15px;
@@ -59,5 +76,9 @@ header.fixed {
         width:100%;
         margin:0 20px;
         text-transform: uppercase;
+    }
+    .search__wrapper {
+        display:block;
+        margin-left:20px;
     }
 }
