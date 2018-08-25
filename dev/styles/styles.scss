@@ -18,11 +18,10 @@ body {
 @import 'footer';
 
 
-// @font-face {
-//     font-family: "Big Noodle Too";
-//     src: url(../../Font/big_noodle_titling.ttf) format("truetype");
-// }
-
+@font-face {
+    font-family: "Big Noodle Too";
+    src: url(../../Font/big_noodle_titling.ttf) format("truetype");
+}
 
 img {
     width:100%;

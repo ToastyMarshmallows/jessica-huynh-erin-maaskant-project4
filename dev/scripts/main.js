@@ -211,7 +211,6 @@ app.initMap = (lat,lng) => {
 		document.getElementById('map'), { zoom: 7, center: location });
 	// The marker, positioned at location by lat and lng
 	let marker = new google.maps.Marker({ position: location, map: map });
-
 }
 
 app.displayLocation = () => {
@@ -225,13 +224,14 @@ app.displayLocation = () => {
 
 app.displayHero = (hero) => {
 	// console.log(hero)
-	$('.hero__card').empty();
-	// console.log(hero)
-	
 	hero.filter((heroType)=> heroType.name === app.searchValue)
-	// 	console.log(heroType.name)
 	.forEach((heroType)=>{
-		const selectHero = $(`.hero__card`);
+		const heroHeading = $(`.hero__card__heading`);
+		const cardName = $(`<h4>${heroType.name}</h4>`);
+
+		heroHeading.append(cardName)
+
+		const selectHero = $('.hero__container');
 		const heroName = $(`<li>Name: ${heroType.name}</li>`);
 		const realName = $(`<li>Real Name: ${heroType.real_name}</li>`);
 		const age = $(`<li>Age: ${heroType.age}</li>`);
@@ -241,31 +241,36 @@ app.displayHero = (hero) => {
 		const health = $(`<li>Health: ${heroType.health}</li>`);
 		const armour = $(`<li>Armour: ${heroType.armour}</li>`);
 		const shield = $(`<li>Shield: ${heroType.shield}</li>`);
-		// console.log(heroType)
-		selectHero.append(heroName,realName, age, height, base, affl, health, armour, shield)
+
 		$('.hero__container').append(selectHero)
+		$(heroHeading).on('click', function(){
+			console.log('hi')
+			$('.hero__info').empty();
+			$(".hero__info").append(heroName, realName, age, height, base, affl, health, armour, shield)
+		})
 	});
 	// app.displayLocation(app.searchValue);
 }
 
 
 app.events = () => {
-	$('.search-form').on('submit', function(e){
+	$('.search__container').on('submit', function(e){
 		e.preventDefault();
+		$('.hero__card__heading').empty();
 		app.searchValue = $('input[type=search]').val();
 		app.getHero(app.searchValue)
-		console.log(app.searchValue);
+		// console.log(app.searchValue);
    })
-	$('.hero__card').on('click', '.location', function () {
+	$('.hero__container').on('click', '.location', function () {
 		app.displayLocation(app.searchValue);
 	})
 	$('.OW__Logo').on('click',function(){
 		$(this).addClass('shrink')
-		$('.admin__login__text').addClass('show');
+		$('.input__bar--text').addClass('show');
 	});
-	$('.admin__login').on('submit', function (e) {
+	$('.login__container').on('submit', function (e) {
 		e.preventDefault();
-		$('.admin__login__text').hide('slow');
+		$('.input__bar--text').hide('fast');
 		$('header').addClass('fixed');
 		// $('.opening__overlay').hide('slow');
 	})
@@ -274,6 +279,7 @@ app.events = () => {
 
 app.init = function() {
 	// console.log("It's working");
+	$('.hero__card__heading').empty();
 	app.getHero();
 	app.events();
 	app.getLocation();
