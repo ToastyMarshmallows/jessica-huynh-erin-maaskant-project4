@@ -1,48 +1,33 @@
-.hero__card {
-    // border:1px solid red;
-}
-
-.hero__info {
-    // border:1px solid red;
-    // display:none;
-}
-
-main {
-    // margin-top:100px;
-}
-
-
 main {
     margin-top:100px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
+    // grid-template-rows: 1fr;
     grid-gap: 20px;
-    aside {
-        border:1px solid orange;
-        // background-color: limegreen;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: min-content;
-        grid-gap: 5px;
-        .search__results__heading {
-            border:1px solid pink;
-            grid-column: 1 / 3;
-            grid-row: 1;
-        }
-        .search__results__container {
-            background-color: darkgreen;
-        }
-    }
     .hero__container {
         border:1px solid cyan;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* grid-auto-rows: 50% 50%; */
         grid-gap: 5px;
-        .hero__map {
-            grid-column: 1 / 3;
-            grid-row: 2;
+        #map {
+            grid-column: 1 / -1;
         }
+    }
+}
+
+aside {
+    border:1px dotted $accentDark;
+    // background-color: limegreen;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    grid-gap: 5px;
+    .search__results__heading {
+        border:1px solid pink;
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+    .search__results__container {
+        background-color: darkgreen;
     }
 }

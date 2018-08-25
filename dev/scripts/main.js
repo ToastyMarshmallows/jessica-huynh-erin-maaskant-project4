@@ -293,7 +293,7 @@ app.heroImages = [
 
 app.heroInfo = {}
 
-app.searchValue = $('input[type=search]').val();
+// app.searchValue = $('input[type=search]').val();
 
 app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 app.apiURLGeo = 'https://maps.googleapis.com/maps/api/geocode/json'
@@ -373,20 +373,31 @@ app.displayHero = (hero) => {
 		const shield = $(`<li>Shield: ${heroType.shield}</li>`);
 
 		$('.hero__container').append(selectHero)
-		$(heroHeading).on('click', function(){
-			console.log('hi')
+		$('.search__results__card').on('click', function(){
 			$('.hero__info').empty();
 			$(".hero__info").append(heroName, realName, age, height, base, affl, health, armour, shield)
 		})
 	});
-	// app.displayLocation(app.searchValue);
 }
 
 app.displayImages = () => {
-	app.heroImages.filter((imageFile) => imageFile.name === app.searchValue)
-	// .forEach((image)=> {
-	// 	const image = $('${')
+	// app.heroImages.forEach((thing) => {
+	// 	console.log(thing, app.searchValue);
+		
 	// })
+	app.heroImages.filter((imageFile) => imageFile.name === app.searchValue)
+	// console.log(imageFile.name);
+	.forEach((imageFile) => {
+	const profileFigure = $('.hero__card')
+	const profilePic = $('<img>').attr('src', imageFile.profile);
+	profileFigure.append(profilePic)
+	const fullFigure = $('.hero__image')
+	const fullPic = $('<img>').attr('src', imageFile.full);
+	$('.search__results__card').on('click', function(){
+		$('.hero__image').empty();
+		fullFigure.append(fullPic)
+		})
+	})
 }
 
 
@@ -396,6 +407,7 @@ app.events = () => {
 		$('.hero__card__heading').empty();
 		app.searchValue = $('input[type=search]').val();
 		app.getHero(app.searchValue)
+		app.displayImages()
 		// console.log(app.searchValue);
    })
 	$('.hero__container').on('click', '.location', function () {
@@ -420,7 +432,7 @@ app.init = function() {
 	app.getHero();
 	app.events();
 	app.getLocation();
-	app.displayImages();
+	// app.displayImages();
 }
 
 $(function () {
