@@ -25,7 +25,8 @@ app.heroLocation = [
 		name:'Ana',
 		placeID: 'ChIJ674hC6Y_WBQRujtC6Jay33k',
 		lat: 30.0444196,
-		lng: 31.2357116, 	
+		lng: 31.2357116, 
+		// profile: url('../assets/Ana-full-flat.png'),
 	},
 	{
 		name:'Bastion'
@@ -161,6 +162,135 @@ app.heroLocation = [
 	}
 ]
 
+app.heroImages = [
+	{
+		name:'Ana',
+		profile: `../assets/Ana-portrait-3d.png`,
+		full: `../assets/Ana-full-flat.png`
+	},
+	{
+		name:'Bastion',
+		profile:`../assets/Bastion-portrait-3d.png`,
+		full: `../assets/Bastion-full-3d.png`
+	},
+	{
+		name:'D.Va',
+		profile:`../assets/D_va-portrait-3d-2.png`,
+		full: `../assets/D_Va-full-3d.png`
+	},
+	{
+		name:'Genji',
+		profile:`../assets/Genji-portrait-3d.png`,
+		full:`..assets/Genji-full-3d.png`,
+	},
+	{
+		name:'Hanzo',
+		profile:`../assets/Hanzo-portrait-3d.png`,
+		full:`../assets/Hanzo-full-3d.png`,
+	},
+	{
+		name:'Junkrat',
+		profile:`../assets/Junkrat-portrait-3d.png`,
+		full:`../assets/Junkrat-full-3d.png`
+	},
+	{
+		name:'Lucio',
+		profile:`../assets/Lucio-portrait-3d.png`,
+		full:`../assets/Lucio-full-3d.png`,
+	},
+	{
+		name: 'McCree',
+		profile:`../assets/Mccree-portrait-3d.png`,
+		full:`..assets/Mccree-full-3d.png`
+	},
+	{
+		name:'Mei',
+		profile:`../assets/Mei-portrait-3d.png`,
+		full:`../assets/Mei-full-3d.png`,
+	},
+	{
+		name:'Mercy',
+		profile:`../assets/Mercy-portrait-3d.png`,
+		full:`../assets/Mercy-full-3d.png`, 
+	},
+	{
+		name:'Orisa',
+		profile:`../assets/Orisa-portrait-3d.png`,
+		full:`../assets/Orisa-full-3d.png`,
+	},
+	{
+		name:'Pharah',
+		profile:`../assets/Pharah-portrait-3d.png`,
+		full:`../assets/Pharah-full-3d.png`,
+	},
+	{
+		name:'Reaper',
+		profile:`../assets/Reaper-portrait-3d.png`,
+		full:`../assets/Reaper-full-3d.jpg`
+	},
+	{
+		name: 'Reinhardt',
+		profile: '../assets/Reinhardt-portrait-3d.png',
+		full: '../assets/Reinhardt-full-3d.png',
+	},
+	{
+		name: 'Roadhog',
+		profile: '../assets/Roadhog-portrait-3d.png',
+		full: '../assets/Roadhog-full-3d.png',
+	},
+	{
+		name: 'Soldier 76',
+		profile: '../assets/Soldier76-portrait-3d.png',
+		profile: '../assets/Soldier76-full-3d.png',
+	},
+	{
+		name: 'Symmetra',
+		profile: '../assets/Symmetra-portrait-3d.png',
+		full: '../assets/Symmetra-full-3d.png',
+	},
+	{
+		name: 'Torbjorn',
+		profile: '../assets/Torbjorn-portrait-3d.png',
+		full: '../assets/Torbjorn-full-3d.png',
+	},
+	{
+		name: 'Tracer',
+		profile: '../assets/Tracer-portrait-3d.png',
+		full: '../assets/Tracer-full-3d.png',
+	},
+	{
+		name: 'Widowmaker',
+		profile: '../assets/Widowmaker-portrait-3d.png',
+		full: '../assets/Widowmaker-full-flat.png',
+	},
+	{
+		name: 'Winston',
+		profile: '../assets/Winston-portrait-3d.png',
+		full: '../assets/Winston-full-3d.png',
+	},
+	{
+		name: 'Zarya',
+		profile: '../assets/Zarya-portrait-3d.png',
+		full: '../assets/Zarya-full-3d.png',
+	},
+	{
+		name: 'Zenyatta',
+		profile: '../assets/Zenyatta-portrait-3d.png',
+		full: '../assets/Zenyatta-full-flar.png',
+	},
+	{
+		name: 'Sombra',
+		profile: '../assets/Sombra-portrait-3d.png',
+		full: '../assets/Sombra-full-3d.png',
+	},
+	{
+		name: 'Orisa',
+		portrait: '../assets/Orisa-portrait-3d.png',
+		full: '../assets/Orisa-full-3d.png',
+	}
+
+]
+
 app.heroInfo = {}
 
 app.searchValue = $('input[type=search]').val();
@@ -252,6 +382,13 @@ app.displayHero = (hero) => {
 	// app.displayLocation(app.searchValue);
 }
 
+app.displayImages = () => {
+	app.heroImages.filter((imageFile) => imageFile.name === app.searchValue)
+	// .forEach((image)=> {
+	// 	const image = $('${')
+	// })
+}
+
 
 app.events = () => {
 	$('.search__container').on('submit', function(e){
@@ -283,6 +420,7 @@ app.init = function() {
 	app.getHero();
 	app.events();
 	app.getLocation();
+	app.displayImages();
 }
 
 $(function () {
