@@ -203,6 +203,8 @@ app.getLocation = (placeID, lat, lng) => {
 	})
 }
 
+
+
 app.initMap = (lat,lng) => {
 	// console.log('inside init map')
 	const location = { lat: lat, lng: lng }
