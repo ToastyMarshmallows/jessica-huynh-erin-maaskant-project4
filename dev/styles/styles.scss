@@ -1,0 +1,58 @@
+@import 'setup';
+@import 'utils';
+// @import 'typography';
+
+* {
+    margin:0;
+}
+
+body {
+    background:$primaryDark;
+    color:$white;
+    font-size:1.6rem;
+    font-family:'Nunito', sans-serif;
+}
+
+@import 'header';
+@import 'main';
+@import 'footer';
+
+
+// @font-face {
+//     font-family: "Big Noodle Too";
+//     src: url(../../Font/big_noodle_titling.ttf) format("truetype");
+// }
+
+
+img {
+    width:100%;
+    display:block;
+}
+
+input[type=search] {
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-bottom:1px solid grey;
+    background:transparent;
+    padding:10px;
+}
+
+.OW__Logo {
+    // border:1px solid orange;
+    width:30%;
+    transition:width 1s ease-in-out;
+    .large__bit {
+        fill:white;
+    }
+    .small__bit {
+        fill:$accentDark;
+    }
+}
+
+h1 {
+    display:none;
+    width:0%;
+    opacity:0;
+    transition:width 1s;
+}
