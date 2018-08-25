@@ -260,6 +260,16 @@ app.events = () => {
 	$('.hero__card').on('click', '.location', function () {
 		app.displayLocation(app.searchValue);
 	})
+	$('.OW__Logo').on('click',function(){
+		$(this).addClass('shrink')
+		$('.admin__login__text').addClass('show');
+	});
+	$('.admin__login').on('submit', function (e) {
+		e.preventDefault();
+		$('.admin__login__text').hide('slow');
+		$('header').addClass('fixed');
+		// $('.opening__overlay').hide('slow');
+	})
 }
 
 
