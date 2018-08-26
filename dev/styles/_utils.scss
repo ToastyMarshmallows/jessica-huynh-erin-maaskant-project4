@@ -29,3 +29,52 @@ $secondaryFont: 'Big Noodle Too';
        @media (max-width:450px) { @content;}
 }
 }
+
+
+@keyframes slowfill {
+    0% {
+        fill:$white;
+    }
+    100% {
+        fill:$logoGrey;
+    }
+}
+
+@keyframes colourpop {
+    0% {
+        fill:$white;
+    }
+    100% {
+        fill:$accentDark;
+    }
+}
+
+@keyframes flash {
+    0% {
+        text-shadow:none;
+    }
+    25% {
+        text-shadow:2px 2px 2px $accentDark;
+    }
+    50% {
+        text-shadow:none;
+    }
+    100% {
+        text-shadow:2px 2px 2px $accentDark;
+    }
+}
+
+@keyframes revflash {
+      0% {
+        text-shadow:none;
+    }
+    25% {
+        text-shadow:2px 2px 2px $white;
+    }
+    50% {
+        text-shadow:none;
+    }
+    100% {
+        text-shadow:2px 2px 2px $white;
+    }
+}
