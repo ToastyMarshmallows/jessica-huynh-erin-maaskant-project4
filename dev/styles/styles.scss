@@ -18,11 +18,10 @@ body {
 @import 'footer';
 
 
-// @font-face {
-//     font-family: "Big Noodle Too";
-//     src: url(../../Font/big_noodle_titling.ttf) format("truetype");
-// }
-
+@font-face {
+    font-family: "Big Noodle Too";
+    src: url(../../Font/big_noodle_titling.ttf) format("truetype");
+}
 
 img {
     width:100%;
@@ -55,62 +54,4 @@ h1 {
     width:0%;
     opacity:0;
     transition:width 1s;
-}
-// ------ BODY CSS GRID STYLES ------
-.main {
-    background: pink;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 20px;
-    .aside {
-        background-color: limegreen;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: min-content;
-        grid-gap: 5px;
-        .search__results__heading {
-            background-color: green;
-            grid-column: 1 / 3;
-            grid-row: 1;
-        }
-        .search__results__container {
-            background-color: darkgreen;
-        }
-    }
-    .hero__container {
-        background-color: navy;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* grid-auto-rows: 50% 50%; */
-        grid-gap: 5px;
-        .hero__map {
-            grid-column: 1 / 3;
-            grid-row: 2;
-        }
-    }
-}
-// -- TEMP RESPONSIVENESS --
-@media (max-width: 970px) {
-    .container_left {
-        grid-template-columns: 1fr;
-    }
-    .container_right {
-        grid-template-columns: 1fr;
-    }
-    .aa {
-    grid-column: 1 / 3;
-	    grid-row: 1;
-    }
-    .bb {
-    grid-column: 1 / 3;
-	    grid-row: 2;
-    }
-    .cc {
-    grid-column: 1 / 3;
-	    grid-row: 3;
-    }
-@media (max-width: 600px) {
-    .container_overall {
-        grid-template-columns: 1fr;
-    }
 }

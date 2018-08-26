@@ -4,11 +4,6 @@ $secondaryDark: #218ffe;
 $accentDark: #fc9e00;
 $logoGrey: #484848;
 
-$primaryFont: ;
-// $secondaryFont: 'Big Noodle Too';
-
-// $base: #43484c;
-
 @mixin breakPoint($point) {
     @if $point == first-break {
         @media (max-width:1300px) { @content;}
@@ -31,10 +26,4 @@ $primaryFont: ;
       @if $point == seventh-break {
        @media (max-width:450px) { @content;}
 }
-
-
-@mixin titleStyles($sizeValue) {
-    font-size:$sizeValue * 1px;
-    font-size:($sizeValue / 10) * 1rem;
-    font-family:$secondaryFont;
 }
