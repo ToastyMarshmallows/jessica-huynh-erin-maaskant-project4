@@ -4,26 +4,25 @@ main {
     grid-template-columns: 0.9fr 2fr;
     grid-template-rows:200px 200px;
     grid-gap: 20px;
-    max-height:80vh;   
+    max-height:100vh;   
     .hero__container {
-        background: url(../../assets/NepalBG.jpg) no-repeat;
-        background-size:cover;
-        border:1px solid cyan;
+        background:rgba(0,0,0,0.5);
+        // border:1px solid cyan;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows:1fr 1fr;
         grid-auto-flow: dense;
-        height:80vh;
+        height:85vh;
         .hero__image {
             // border:1px solid white;
             grid-row-end: -1;
             grid-column-end:-1;
             position: fixed;
             right:0;
-            width:35%;
+            bottom:0;
+            width:45%;
         }
         .hero__info {
-            background:rgba(0,0,0,0.5);
             padding:30px;
             width:auto;
             height:100%;
@@ -50,18 +49,28 @@ main {
     }
 }
 
+.hero__container.show {
+    background: radial-gradient(rgba(0,0,0,0.5), transparent), url(../../assets/NepalBG.jpg) no-repeat;
+    background-size:cover;
+    .hero__info {
+        background:rgba(0,0,0,0.5);
+    }
+}
+
 aside {
-    border:1px dotted $accentDark;
+    border:1px dotted $logoGrey;
+    background:rgba(0,0,0,0.5);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
     grid-gap: 5px;
+    height:85vh;
     .search__results__heading {
-        border:1px solid pink;
+        // border:1px solid pink;
         grid-column: 1 / 3;
         grid-row: 1;
     }
-    .search__results__container {
-        background-color: darkgreen;
+    .search__results__card {
+        border:1px solid red;
     }
 }
