@@ -423,7 +423,6 @@ app.events = () => {
 		e.preventDefault();
 		$('.input__bar--text').hide('fast');
 		$('header').addClass('fixed');
-		// $('.opening__overlay').hide('slow');
 	})
 }
 
