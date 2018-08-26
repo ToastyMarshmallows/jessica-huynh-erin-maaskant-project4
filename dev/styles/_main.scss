@@ -92,13 +92,13 @@ aside {
         // background:linear-gradient(to top, white, transparent);
         background-size:cover;
         position: relative;
-        .hero__card {
-            perspective: 2000px;
-            &:hover img {
-                transform: rotateY(10deg);
-                transition: transform 1s ease;
-            } 
-        }
+        // .hero__card {
+        //     perspective: 2000px;
+        //     &:hover img {
+        //         transform: rotateY(10deg);
+        //         transition: transform 1s ease;
+        //     } 
+        // }
     }
     .hero__card__heading {
         // text-align: center;
