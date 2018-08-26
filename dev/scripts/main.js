@@ -165,128 +165,128 @@ app.heroLocation = [
 app.heroImages = [
 	{
 		name:'Ana',
-		profile: `../assets/Ana-portrait.png`,
-		full: `../assets/Ana-full.png`
+		profile: `assets/Ana-portrait.png`,
+		full: `assets/Ana-full.png`
 	},
 	{
 		name:'Bastion',
-		profile:`../assets/Bastion-portrait.png`,
-		full: `../assets/Bastion-full.png`
+		profile:`assets/Bastion-portrait.png`,
+		full: `assets/Bastion-full.png`
 	},
 	{
 		name:'D.Va',
-		profile:`../assets/D_va-portrait.png`,
-		full: `../assets/D_Va-full.png`
+		profile:`assets/D_va-portrait.png`,
+		full: `assets/D_Va-full.png`
 	},
 	{
 		name:'Genji',
-		profile:`../assets/Genji-portrait.png`,
-		full:`..assets/Genji-full.png`,
+		profile:`assets/Genji-portrait.png`,
+		full:`assets/Genji-full.png`,
 	},
 	{
 		name:'Hanzo',
-		profile:`../assets/Hanzo-portrait.png`,
-		full:`../assets/Hanzo-full.png`,
+		profile:`assets/Hanzo-portrait.png`,
+		full:`assets/Hanzo-full.png`,
 	},
 	{
 		name:'Junkrat',
-		profile:`../assets/Junkrat-portrait.png`,
-		full:`../assets/Junkrat-full.png`
+		profile:`assets/Junkrat-portrait.png`,
+		full:`assets/Junkrat-full.png`
 	},
 	{
 		name:'Lucio',
-		profile:`../assets/Lucio-portrait.png`,
-		full:`../assets/Lucio-full.png`,
+		profile:`assets/Lucio-portrait.png`,
+		full:`assets/Lucio-full.png`,
 	},
 	{
 		name: 'McCree',
-		profile:`../assets/Mccree-portrait.png`,
-		full:`..assets/Mccree-full.png`
+		profile:`assets/Mccree-portrait.png`,
+		full:`assets/Mccree-full.png`
 	},
 	{
 		name:'Mei',
-		profile:`../assets/Mei-portrait.png`,
-		full:`../assets/Mei-full.png`,
+		profile:`assets/Mei-portrait.png`,
+		full:`assets/Mei-full.png`,
 	},
 	{
 		name:'Mercy',
-		profile:`../assets/Mercy-portrait.png`,
-		full:`../assets/Mercy-full.png`, 
+		profile:`assets/Mercy-portrait.png`,
+		full:`assets/Mercy-full.png`, 
 	},
 	{
 		name:'Orisa',
-		profile:`../assets/Orisa-portrait.png`,
-		full:`../assets/Orisa-full.png`,
+		profile:`assets/Orisa-portrait.png`,
+		full:`assets/Orisa-full.png`,
 	},
 	{
 		name:'Pharah',
-		profile:`../assets/Pharah-portrait.png`,
-		full:`../assets/Pharah-full.png`,
+		profile:`assets/Pharah-portrait.png`,
+		full:`assets/Pharah-full.png`,
 	},
 	{
 		name:'Reaper',
-		profile:`../assets/Reaper-portrait.png`,
-		full:`../assets/Reaper-full.jpg`
+		profile:`assets/Reaper-portrait.png`,
+		full:`assets/Reaper-full.jpg`
 	},
 	{
 		name: 'Reinhardt',
-		profile: '../assets/Reinhardt-portrait.png',
-		full: '../assets/Reinhardt-full.png',
+		profile: 'assets/Reinhardt-portrait.png',
+		full: 'assets/Reinhardt-full.png',
 	},
 	{
 		name: 'Roadhog',
-		profile: '../assets/Roadhog-portrait.png',
-		full: '../assets/Roadhog-full.png',
+		profile: 'assets/Roadhog-portrait.png',
+		full: 'assets/Roadhog-full.png',
 	},
 	{
 		name: 'Soldier 76',
-		profile: '../assets/Soldier76-portrait.png',
-		profile: '../assets/Soldier76-full.png',
+		profile: 'assets/Soldier76-portrait.png',
+		profile: 'assets/Soldier76-full.png',
 	},
 	{
 		name: 'Symmetra',
-		profile: '../assets/Symmetra-portrait.png',
-		full: '../assets/Symmetra-full.png',
+		profile: 'assets/Symmetra-portrait.png',
+		full: 'assets/Symmetra-full.png',
 	},
 	{
 		name: 'Torbjorn',
-		profile: '../assets/Torbjorn-portrait.png',
-		full: '../assets/Torbjorn-full.png',
+		profile: 'assets/Torbjorn-portrait.png',
+		full: 'assets/Torbjorn-full.png',
 	},
 	{
 		name: 'Tracer',
-		profile: '../assets/Tracer-portrait.png',
-		full: '../assets/Tracer-full.png',
+		profile: 'assets/Tracer-portrait.png',
+		full: 'assets/Tracer-full.png',
 	},
 	{
 		name: 'Widowmaker',
-		profile: '../assets/Widowmaker-portrait.png',
-		full: '../assets/Widowmaker-full.png',
+		profile: 'assets/Widowmaker-portrait.png',
+		full: 'assets/Widowmaker-full.png',
 	},
 	{
 		name: 'Winston',
-		profile: '../assets/Winston-portrait.png',
-		full: '../assets/Winston-full.png',
+		profile: 'assets/Winston-portrait.png',
+		full: 'assets/Winston-full.png',
 	},
 	{
 		name: 'Zarya',
-		profile: '../assets/Zarya-portrait.png',
-		full: '../assets/Zarya-full.png',
+		profile: 'assets/Zarya-portrait.png',
+		full: 'assets/Zarya-full.png',
 	},
 	{
 		name: 'Zenyatta',
-		profile: '../assets/Zenyatta-portrait.png',
-		full: '../assets/Zenyatta-full.png',
+		profile: 'assets/Zenyatta-portrait.png',
+		full: 'assets/Zenyatta-full.png',
 	},
 	{
 		name: 'Sombra',
-		profile: '../assets/Sombra-portrait.png',
-		full: '../assets/Sombra-full.png',
+		profile: 'assets/Sombra-portrait.png',
+		full: 'assets/Sombra-full.png',
 	},
 	{
 		name: 'Orisa',
-		portrait: '../assets/Orisa-portrait.png',
-		full: '../assets/Orisa-full.png',
+		portrait: 'assets/Orisa-portrait.png',
+		full: 'assets/Orisa-full.png',
 	}
 
 ]
