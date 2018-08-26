@@ -1,6 +1,6 @@
 @import 'setup';
 @import 'utils';
-// @import 'typography';
+@import 'typography';
 
 * {
     margin:0;
@@ -16,12 +16,6 @@ body {
 @import 'header';
 @import 'main';
 @import 'footer';
-
-
-@font-face {
-    font-family: "Big Noodle Too";
-    src: url(../../Font/big_noodle_titling.ttf) format("truetype");
-}
 
 img {
     width:100%;

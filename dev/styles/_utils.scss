@@ -4,6 +4,10 @@ $secondaryDark: #218ffe;
 $accentDark: #fc9e00;
 $logoGrey: #484848;
 
+$secondaryFont: 'Big Noodle Too';
+
+// $base: #43484c;
+
 @mixin breakPoint($point) {
     @if $point == first-break {
         @media (max-width:1300px) { @content;}

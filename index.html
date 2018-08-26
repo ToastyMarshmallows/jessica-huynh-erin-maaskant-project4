@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +7,11 @@
     <link href=“https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i” rel=“stylesheet”>
     <link rel="stylesheet" href="public/styles/style.css">
     <title>OVERWATCH</title>
-    <style>
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px;
-            /* The height is 400 pixels */
-            width: 100%;
-            /* The width is the width of the web page */
-        }
+    <style> /* Set the size of the div element that contains the map */ #map { height: auto; /* The height is 400 pixels */ width:
+    100%; /* The width is the width of the web page */ }
     </style>
-</head>
 
+</head>
 <body>
     <header>
         <div class="wrapper">
@@ -54,10 +47,10 @@
                 </svg>
             </figure>
             <form action="" class="login__container">
-
+                
                 <input type="text" class="input__bar input__bar--text" placeholder="Admin Login">
                 <input type="submit" class="input__submit input__submit--login">
-
+                
             </form>
             <h1 class="visuallyhidden">Overwatch Database</h1>
             <div class="search__wrapper">
@@ -66,43 +59,45 @@
                     <input type="submit" class="input__submit input__submit--search">
                 </form>
             </div>
+
         </div>
-
+        
     </header>
-
+    
     <main>
         <aside>
             <section class="search__results__heading">
-                <h3></h3>
+                <h3>Hero Results:</h3>
             </section>
-            <section class="search__results__container">
+            <section class="search__results__card">
                 <h4 class="hero__card__heading"></h4>
                 <figure class="hero__card">
-                    <img src="">
                     <figcaption class="hero__card__fig"></figcaption>
                 </figure>
             </section>
         </aside>
+
         <section class="hero__container">
             <figure class="hero__image">
-                <img src="" alt="">
+                <!-- <img src="assets/Ana-full-3d.png"> -->
             </figure>
-            <ul class="hero__info">
-            </ul>
+                    <ul class="hero__info">
+        
+                    </ul>
             <div id="map">
-
-
+        
             </div>
         </section>
+
     </main>
     <footer>
         <div class="credit"></div>
     </footer>
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
-        crossorigin='anonymous'></script>
+
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeTIiHDXlITR2WjpJlf-1AigrB7Tl_r5U">
     </script>
     <script src="dev/scripts/main.js"></script>
 </body>
-
 </html>
