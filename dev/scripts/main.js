@@ -411,7 +411,7 @@ app.events = () => {
 		app.getHero(app.searchValue)
 		app.displayImages()
 		// console.log(app.searchValue);
-   })
+   	})
 	$('.hero__container').on('click', '.location', function () {
 		app.displayLocation(app.searchValue);
 	})
@@ -426,7 +426,6 @@ app.events = () => {
 		// $('.opening__overlay').hide('slow');
 	})
 }
-
 
 app.init = function() {
 	// console.log("It's working");
