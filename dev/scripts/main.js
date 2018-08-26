@@ -293,7 +293,7 @@ app.heroImages = [
 
 app.heroInfo = {}
 
-// app.searchValue = $('input[type=search]').val();
+app.searchValue = $('input[type=search]').val();
 
 app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 app.apiURLGeo = 'https://maps.googleapis.com/maps/api/geocode/json'
@@ -382,10 +382,6 @@ app.displayHero = (hero) => {
 }
 
 app.displayImages = () => {
-	// app.heroImages.forEach((thing) => {
-	// 	console.log(thing, app.searchValue);
-		
-	// })
 	app.heroImages.filter((imageFile) => imageFile.name === app.searchValue)
 	// console.log(imageFile.name);
 	.forEach((imageFile) => {

@@ -20,13 +20,12 @@ $nunito: 'Nunito Sans', sans-serif;
 
 h3 {
     @include title-styles (4.5);
-    font-family: "Big Noodle Too";
+    font-family: $secondaryFont;
     letter-spacing: 2px;
 }
 h4 {
-    @include title-styles (2);
-    font-family: $nunito;
+    @include title-styles (4.5);
+    font-family: $secondaryFont;
     text-transform: uppercase;
     color: $accentDark;
-    padding: 5px 0 0 5px;
 }
