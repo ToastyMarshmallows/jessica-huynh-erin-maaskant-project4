@@ -21,6 +21,11 @@ main {
             right:0;
             bottom:0;
             width:45%;
+            perspective: 1000px;
+            &:hover img {
+                transform: rotateY(-10deg);
+                transition: transform 1s ease;
+            }
         }
         .hero__info {
             padding:30px;
@@ -84,8 +89,14 @@ aside {
         // background:linear-gradient(to top, white, transparent);
         background-size:cover;
         position: relative;
+        .hero__card {
+            perspective: 2000px;
+            &:hover img {
+                transform: rotateY(10deg);
+                transition: transform 1s ease;
+            } 
+        }
     }
-
 }
 
 
