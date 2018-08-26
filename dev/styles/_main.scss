@@ -31,7 +31,8 @@ main {
             // border:1px solid yellow;
             position: relative;
             li {
-                @include paragraph-styles(1.8)
+                @include paragraph-styles(1.8);
+                // border:1px solid cyan;
             }
             li span {
                 text-align: left;
@@ -39,6 +40,8 @@ main {
                 left:20px;
                 font-family: "Big Noodle Too";
                 @include title-styles(2.75);
+                // border:1px solid red;
+                line-height:1;
     
             }
         }
@@ -84,6 +87,10 @@ aside {
         // background:linear-gradient(to top, white, transparent);
         background-size:cover;
         position: relative;
+    }
+    .hero__card__heading {
+        // text-align: center;
+        border:1px solid red;
     }
 
 }
