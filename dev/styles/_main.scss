@@ -61,16 +61,36 @@ aside {
     border:1px dotted $logoGrey;
     background:rgba(0,0,0,0.5);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 1fr;
     grid-auto-rows: min-content;
     grid-gap: 5px;
     height:85vh;
     .search__results__heading {
         // border:1px solid pink;
-        grid-column: 1 / 3;
-        grid-row: 1;
+        grid-column: 1;
+        grid-row: 2;
     }
     .search__results__card {
+        border:1px solid red;
+        position: relative;
+    }
+
+}
+
+.search__wrapper {
+    border:1px solid red;
+    width:100%;
+    .search__container {
+        border:1px solid red;
+        display: flex;
+    }
+    .input__bar--search {
+        border:none;
+        border-bottom:3px solid $white;
+        width:100%;
+    }
+    .input__submit {
         border:1px solid red;
     }
 }

@@ -1,3 +1,5 @@
+$nunito: 'Nunito Sans', sans-serif;
+
 @mixin title-styles($sizeValue) {
     font-size: $sizeValue * 1px;
     font-size: ($sizeValue) * 1rem;
@@ -6,16 +8,9 @@
 @mixin paragraph-styles($sizeValue) {
     font-size: $sizeValue * 1px;
     font-size: ($sizeValue) * 1rem;
-    // font-family: $basefont1;
     font-weight: 400;
     letter-spacing: 1px;
     line-height:1.5;
-}
-html {
-    font-size: 62.5%;
-}
-body {
-    font-size: 1.6rem;
 }
 
 @font-face {
@@ -23,41 +18,15 @@ body {
     src: url(../../Font/big_noodle_titling.ttf) format("truetype");
 }
 
-
-
-// h1 {
-//     @include title-styles (82);
-//     padding: 20px 0;
-//     color: $dkgrey;
-// }
-// h2 {
-//     @include paragraph-styles (35);
-//     padding: 0 15px 40px 15px;
-//     text-align: left;
-//     color: $dkgrey;
-// }
-// h3 {
-//     @include title-styles (60);
-//     text-align: center;
-//     color: $red;
-//     text-shadow: 1px 1px 2px $mdgrey;
-//     padding-top: 20px;
-// }
-// h4 {
-//     @include title-styles (400);
-//     color: $blue;
-// }
-// h5 {
-//     @include paragraph-styles(20);
-//     padding: 25px 0;
-//     text-align: center;
-// }
-// ul, li {
-//     @include paragraph-styles (25);
-//     line-height: 50px;
-// }
-// p {
-//     @include paragraph-styles (30);
-//     padding: 25px 0;
-//     text-align: center;
-// }
+h3 {
+    @include title-styles (3);
+    font-family: "Big Noodle Too";
+    letter-spacing: 2px;
+}
+h4 {
+    @include title-styles (1.5);
+    font-family: $nunito;
+    text-transform: uppercase;
+    color: $accentDark;
+    padding: 5px 0 0 5px;
+}
