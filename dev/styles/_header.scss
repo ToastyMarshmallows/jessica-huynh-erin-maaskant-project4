@@ -120,24 +120,5 @@ header.fixed {
 
 .triangle {
     fill:$white;
-    animation:flash 2s infinite;
-}
-
-
-@keyframes slowfill {
-    0% {
-        fill:$white;
-    }
-    100% {
-        fill:$logoGrey;
-    }
-}
-
-@keyframes flash {
-    0% {
-        fill:$white;
-    }
-    100% {
-        fill:$accentDark;
-    }
+    animation:colourpop 2s infinite;
 }

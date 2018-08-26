@@ -293,7 +293,7 @@ app.heroImages = [
 
 app.heroInfo = {}
 
-app.searchValue = $('input[type=search]').val();
+// app.searchValue = $('input[type=search]').val();
 
 app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 app.apiURLGeo = 'https://maps.googleapis.com/maps/api/geocode/json'
