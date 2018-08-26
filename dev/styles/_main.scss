@@ -62,35 +62,53 @@ aside {
     background:rgba(0,0,0,0.5);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr 1fr;
+    grid-template-rows: 0.25fr 0.4fr 2fr;
     grid-auto-rows: min-content;
     grid-gap: 5px;
     height:85vh;
     .search__results__heading {
-        // border:1px solid pink;
+        // border:1px solid red;
+        background:$logoGrey;
+        align-items: center;
+        justify-content: center;
         grid-column: 1;
         grid-row: 2;
+        display:none;
+    }
+    .search__results__heading.show{
+        display:flex;
     }
     .search__results__card {
-        border:1px solid red;
+        // border:1px solid red;
+        // background:url(../../assets/OWBackground.gif);
+        // background:linear-gradient(to top, white, transparent);
+        background-size:cover;
         position: relative;
     }
 
 }
 
+
+
 .search__wrapper {
-    border:1px solid red;
     width:100%;
+    margin-top:5px;
     .search__container {
-        border:1px solid red;
+        // border:1px solid red;
+        padding:5px;
+        padding-left:0;
         display: flex;
     }
     .input__bar--search {
-        border:none;
-        border-bottom:3px solid $white;
-        width:100%;
+        // border:none;
+        border:2px solid $white;
+        width:70%;
+        margin:0 5px;
     }
     .input__submit {
-        border:1px solid red;
+        width:30%;
+        background:none;
+        color:$white;
+        border:2px solid $accentDark;
     }
 }

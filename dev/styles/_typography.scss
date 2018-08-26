@@ -19,12 +19,12 @@ $nunito: 'Nunito Sans', sans-serif;
 }
 
 h3 {
-    @include title-styles (3);
+    @include title-styles (4.5);
     font-family: "Big Noodle Too";
     letter-spacing: 2px;
 }
 h4 {
-    @include title-styles (1.5);
+    @include title-styles (2);
     font-family: $nunito;
     text-transform: uppercase;
     color: $accentDark;
