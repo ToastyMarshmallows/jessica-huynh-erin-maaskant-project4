@@ -87,7 +87,7 @@ header.fixed {
 
 .O, .V, .E, .R, .W, .A, .T, .C, .H {
     animation:slowfill 8s forwards infinite;
-    fill:$accentDark;
+    fill:$white;
 }
 
 .V {
@@ -117,12 +117,26 @@ header.fixed {
     animation-delay: 4s;
 }
 
+.triangle {
+    fill:$white;
+    animation:flash 2s infinite;
+}
+
 
 @keyframes slowfill {
     0% {
-        fill:$accentDark;
+        fill:$white;
     }
     100% {
+        fill:$logoGrey;
+    }
+}
+
+@keyframes flash {
+    0% {
         fill:$white;
+    }
+    100% {
+        fill:$accentDark;
     }
 }
