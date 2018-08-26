@@ -166,7 +166,7 @@ app.heroImages = [
 	{
 		name:'Ana',
 		profile: `../assets/Ana-portrait-3d.png`,
-		full: `../assets/Ana-full-flat.png`
+		full: `../assets/Ana-full-3d.png`
 	},
 	{
 		name:'Bastion',
@@ -362,20 +362,20 @@ app.displayHero = (hero) => {
 		heroHeading.append(cardName)
 
 		const selectHero = $('.hero__container');
-		const heroName = $(`<li>Name: ${heroType.name}</li>`);
-		const realName = $(`<li>Real Name: ${heroType.real_name}</li>`);
-		const age = $(`<li>Age: ${heroType.age}</li>`);
-		const height = $(`<li>Height: ${heroType.height}</li>`);
-		const base = $(`<li class="location">Base of Operations: ${heroType.base_of_operations}</li>`);
-		const affl = $(`<li>Affiliation: ${heroType.affiliation}</li>`);
-		const health = $(`<li>Health: ${heroType.health}</li>`);
-		const armour = $(`<li>Armour: ${heroType.armour}</li>`);
-		const shield = $(`<li>Shield: ${heroType.shield}</li>`);
+		const heroName = $(`<li><span>Name:</span> ${heroType.name}</li>`);
+		const realName = $(`<li><span>Real Name:</span> ${heroType.real_name}</li>`);
+		const age = $(`<li><span>Age:</span>${heroType.age}</li>`);
+		const height = $(`<li><span>Height:</span> ${heroType.height}</li>`);
+		const base = $(`<li class="location"><span>Base of Operations:</span> ${heroType.base_of_operations}</li>`);
+		const affl = $(`<li><span>Affiliation:</span> ${heroType.affiliation}</li>`);
+		const health = $(`<li><span>Health:</span> ${heroType.health}</li>`);
+		const armour = $(`<li><span>Armour:</span> ${heroType.armour}</li>`);
+		const shield = $(`<li><span>Shield:</span> ${heroType.shield}</li>`);
 
 		$('.hero__container').append(selectHero)
 		$('.search__results__card').on('click', function(){
 			$('.hero__info').empty();
-			$(".hero__info").append(heroName, realName, age, height, base, affl, health, armour, shield)
+			$('.hero__info').append(heroName, realName, age, height, base, affl, health, armour, shield)
 		})
 	});
 }
