@@ -43,6 +43,11 @@ header {
         .input__submit {
             display:none;
         }
+        .OW__Text {
+            display:none;
+            opacity:0;
+            transition:all 3s;
+        }
 
     }
 }
@@ -51,24 +56,19 @@ header {
     color:$white;
 }
 
-
-.search__wrapper {
-    width:50%;
-    display:none;
-    .input__bar--search {
-        border:none;
-        border-bottom:3px solid $white;
-        width:100%;
-    }
-}
-
 header.fixed {
     height:10vh;
     background:none;
     .wrapper {
         justify-content: flex-start;
-        padding:20px 0 0 15px;
+        padding:25px 0 0 15px;
+        display:flex;
+        justify-content: center;
         // border:1px solid cyan;
+    }
+    .OW__Logo {
+        position: fixed;
+        left:20px;
     }
     h1 {
         display:block;
@@ -77,8 +77,52 @@ header.fixed {
         margin:0 20px;
         text-transform: uppercase;
     }
-    .search__wrapper {
+    .OW__Text {
+        width:40%;
         display:block;
-        margin-left:20px;
+        align-self: center;
+        opacity: 1;
+    }
+}
+
+.O, .V, .E, .R, .W, .A, .T, .C, .H {
+    animation:slowfill 8s forwards infinite;
+    fill:$accentDark;
+}
+
+.V {
+    animation-delay:0.5s;
+}
+
+.E {
+    animation-delay: 1s;
+}
+
+.R {
+    animation-delay: 1.5s;
+}
+.W {
+    animation-delay: 2s;
+}
+.A {
+    animation-delay: 2.5s;
+}
+.T {
+    animation-delay: 3s;
+}
+.C {
+    animation-delay: 3.5s;
+}
+.H {
+    animation-delay: 4s;
+}
+
+
+@keyframes slowfill {
+    0% {
+        fill:$accentDark;
+    }
+    100% {
+        fill:$white;
     }
 }
