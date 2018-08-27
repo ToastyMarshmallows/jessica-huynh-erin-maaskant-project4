@@ -2,67 +2,91 @@ main {
     margin-top:100px;
     display: grid;
     grid-template-columns: 0.9fr 2fr;
-    grid-template-rows:200px 200px;
     grid-gap: 20px;
-    max-height:100vh;   
     .hero__container {
         background:rgba(0,0,0,0.5);
         // border:1px solid cyan;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows:1fr 1fr;
+        grid-template-rows:2fr 1fr;
         grid-auto-flow: dense;
         height:85vh;
+        position: relative;
+        @include breakPoint(third-break) {
+            height:70vh;
+        }
         .hero__image {
             // border:1px solid white;
-            grid-row-end: -1;
-            grid-column-end:-1;
-            position: fixed;
-            right:10%;
-            bottom:0;
-            width:45%;
             z-index:50;
             perspective: 1000px;
+            position:relative;
+            left:50%;
             &:hover img {
                 transform: rotateY(-10deg);
                 transition: transform 1s ease;
             }
+            @include breakPoint(second-break) {
+                position:fixed;
+                width:50%;
+                left:35%;
+            }
+            @include breakPoint(third-break) {
+                // display:none;
+                width:45%;
+            }
         }
         .hero__info {
+            // border:1px solid yellow;
             padding:30px;
-            width:auto;
             height:100%;
             list-style:none;
             text-align: right;
-            // border:1px solid yellow;
-            position: relative;
-            grid-column:1/3;
+            position:absolute;
+            top:0;
+            width:100%;  
             .location {
-                animation:flash 2s infinite;
+                animation:flash 3s infinite;
                 transition:all 0.5s;
+                color:$accentDark;
                 &:hover {
-                    color:$accentDark;
-                    animation:revflash 2s infinite;
+                    color:$white;
+                    animation:revflash 3s infinite;
                 }
             }
             li {
                 @include paragraph-styles(1.8);
-                // border:1px solid cyan;
+                z-index:60;
+                border:1px solid cyan;
             }
             li span {
-                text-align: left;
+                // border:1px solid orange;
                 position: absolute;
                 left:20px;
                 font-family: "Big Noodle Too";
                 @include title-styles(2.75);
-                // border:1px solid red;
                 line-height:1;
-            }
+                }
         }
         #map {
             grid-row-end:-1;
+            grid-column:1 / -1;
             height:auto;
+            width:100%;
+            @include breakPoint(third-break) {
+                width:100%;
+                grid-column:1 / -1;
+
+            }
         }
+    }
+}
+
+li span {
+    border:1px solid red;
+    position:initial;
+    
+    @include breakPoint(third-break) {
+        position:normal;
     }
 }
 
@@ -88,23 +112,36 @@ aside {
         background:$logoGrey;
         align-items: center;
         justify-content: center;
-        grid-column: 1;
-        grid-row: 2;
         display:none;
     }
-    .search__results__heading.show{
+    .search__results__heading.show {
         display:flex;
     }
     .search__results__card {
-        // border:1px solid red;
-        background:rgba(0,0,0,0.5);
-        background-size:cover;
-        position: relative;
+        display:none;
+    }
+    .search__results__card.show {
+        display:block;
+        background:rgba(0,0,0,0.7);
+        transition:background 1s;
+        &:hover {
+            // border:1px solid $accentDark;
+            background:rgba(0,0,0,0.3);
+            
+            h4 {
+                color:$white;
+            }
+        }
     }
     .hero__card__heading {
         background:$logoGrey;
         text-align: center;
         // border:1px solid red;
+        grid-row-start:4;
+    }
+    @include breakPoint(third-break) {
+        grid-template-rows: 100px 0.5fr 1fr;
+        height:70vh;
     }
 
 }
@@ -114,20 +151,42 @@ aside {
     margin-top:5px;
     .search__container {
         // border:1px solid red;
+        height:100%;
         padding:5px;
         padding-left:0;
         display: flex;
+        justify-content: space-between;
+        @include breakPoint(third-break) {
+            flex-flow:column;
+            align-items:center;
+        }
     }
     .input__bar--search {
         // border:none;
         border:2px solid $white;
         width:70%;
         margin:0 5px;
+        &:focus {
+            border-bottom:3px solid $accentDark;
+        }
+        @include breakPoint(third-break) {
+            text-align: center;
+            width:75%;
+        }
     }
     .input__submit {
         width:30%;
         background:none;
         color:$white;
         border:2px solid $accentDark;
+        transition:background 0.3s ease-in-out;
+        padding:10px 15px;
+        &:hover {
+            background:$accentDark;
+            
+        }
+        @include breakPoint(third-break) {
+            width:80%;
+        }
     }
 }

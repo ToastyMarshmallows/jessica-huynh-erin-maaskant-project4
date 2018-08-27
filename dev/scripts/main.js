@@ -402,7 +402,7 @@ app.events = () => {
 	$('.search__container').on('submit', function(e){
 		e.preventDefault();
 		$('.hero__card__heading').empty();
-		$('.search__results__heading').addClass('show');
+		$('.search__results__heading, .search__results__card').addClass('show');
 		app.searchValue = $('input[type=search]').val();
 		app.getHero(app.searchValue)
 		app.displayImages()
