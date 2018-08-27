@@ -1,5 +1,5 @@
 $nunito: 'Nunito Sans', sans-serif;
-$secondaryFont: 'Big Noodle Too', 'Anton', sans-serif;
+$secondaryFont: 'Anton', sans-serif;
 
 @mixin title-styles($sizeValue) {
     font-size: $sizeValue * 1px;
@@ -14,10 +14,10 @@ $secondaryFont: 'Big Noodle Too', 'Anton', sans-serif;
     line-height:1.5;
 }
 
-@font-face {
-    font-family: 'Big Noodle Too';
-    src: url(../../Font/big_noodle_titling.ttf) format("truetype");
-}
+// @font-face {
+//     font-family: 'Big Noodle Too';
+//     src: url(../../Font/big_noodle_titling.ttf) format("truetype");
+// }
 
 h3 {
     @include title-styles (4.5);
