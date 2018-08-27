@@ -345,7 +345,7 @@ app.initMap = (lat,lng) => {
 
 app.displayLocation = () => {
 	app.heroLocation.forEach((location)=>{
-		if(location.name === app.searchValue) {
+		if(location.name === app.searchValueTitled) {
 			// console.log(location.placeID)
 			app.getLocation(location.placeID, location.lat, location.lng)
 		}
@@ -354,7 +354,7 @@ app.displayLocation = () => {
 
 app.displayHero = (hero) => {
 	// console.log(hero)
-	hero.filter((heroType)=> heroType.name === app.searchValue)
+	hero.filter((heroType) => heroType.name === app.searchValueTitled)
 	.forEach((heroType)=>{
 		const heroHeading = $(`.hero__card__heading`);
 		const cardName = $(`<h4>${heroType.name}</h4>`);
@@ -382,7 +382,7 @@ app.displayHero = (hero) => {
 }
 
 app.displayImages = () => {
-	app.heroImages.filter((imageFile) => imageFile.name === app.searchValue)
+	app.heroImages.filter((imageFile) => imageFile.name === app.searchValueTitled)
 	// console.log(imageFile.name);
 	.forEach((imageFile) => {
 	const profileFigure = $('.hero__card')
@@ -404,12 +404,18 @@ app.events = () => {
 		$('.hero__card__heading').empty();
 		$('.search__results__heading, .search__results__card').addClass('show');
 		app.searchValue = $('input[type=search]').val();
-		app.getHero(app.searchValue)
+		// put search value as Titled
+		app.searchValueTitled = app.searchValue.charAt(0).toUpperCase() + app.searchValue.substr(1).toLowerCase();
+		// For instances where name starts with Mc:
+		if(app.searchValueTitled.substr(0,2) === 'Mc' || app.searchValueTitled.substr(0,2) === 'D.') {
+			app.searchValueTitled = app.searchValue.charAt(0).toUpperCase() + app.searchValue.charAt(1).toLowerCase() + app.searchValue.charAt(2).toUpperCase() + app.searchValue.substr(3).toLowerCase();
+		}
+		app.getHero(app.searchValueTitled)
 		app.displayImages()
 		// console.log(app.searchValue);
    	})
 	$('.hero__container').on('click', '.location', function () {
-		app.displayLocation(app.searchValue);
+		app.displayLocation(app.searchValueTitled);
 	})
 	$('.OW__Logo').on('click',function(){
 		$(this).addClass('shrink')
