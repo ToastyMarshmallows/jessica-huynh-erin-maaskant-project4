@@ -1,10 +1,10 @@
 // We want to create a hero database where the user searches the heroes and the hero information is returned into the html
-   // search by name
-   // search by affliation
-   // stretch - user can search via pinpoints on map and include the distance between user and hero's base of operation
+// search by name
+// search by affliation
+// stretch - user can search via pinpoints on map and include the distance between user and hero's base of operation
 
 // 1. Get hero data from the Overwatch API
-   // hero name, real name, age, height, health, armour, shield, affliation, and base of operations, description
+// hero name, real name, age, height, health, armour, shield, affliation, and base of operations, description
 // 2. Display their info on the page
 
 // Hero Images 
@@ -16,23 +16,23 @@
 // Also display hero images with hero information
 
 // Stretch - on the click of hero's base of operations, display hero location with google maps API
-   // second search method - display pinpoints of hero's base of operations on a world map, when the user click's the pin, display hero information 
+// second search method - display pinpoints of hero's base of operations on a world map, when the user click's the pin, display hero information 
 
 const app = {}
 
 app.heroLocation = [
 	{
-		name:'Ana',
+		name: 'Ana',
 		placeID: 'ChIJ674hC6Y_WBQRujtC6Jay33k',
 		lat: 30.0444196,
-		lng: 31.2357116, 
+		lng: 31.2357116,
 		// profile: url('../assets/Ana-full-flat.png'),
 	},
 	{
-		name:'Bastion'
+		name: 'Bastion'
 	},
 	{
-		name:'D.Va',
+		name: 'D.Va',
 		placeID: 'ChIJNc0j6G3raDURpwhxJHTL2DU',
 		lat: 35.1795543,
 		lng: 129.0756416,
@@ -44,7 +44,7 @@ app.heroLocation = [
 		lng: 84.12400799999999,
 	},
 	{
-		name:'Hanzo',
+		name: 'Hanzo',
 		placeID: 'ChIJLxl_1w9OZzQRRFJmfNR1QvU',
 		lat: 36.204824,
 		lng: 138.252924
@@ -55,11 +55,11 @@ app.heroLocation = [
 		lat: -25.274398,
 		lng: 133.775136,
 	},
-	{	
+	{
 		name: 'Lucio',
 		placeID: 'ChIJW6AIkVXemwARTtIvZ2xC3FA',
 		lat: -22.9068467,
-		lng:-43.1728965,
+		lng: -43.1728965,
 	},
 	{
 		name: 'McCree',
@@ -71,162 +71,162 @@ app.heroLocation = [
 		name: 'Mei',
 		placeID: 'ChIJuResIul5YzYRLliUp_1m1IU',
 		lat: 34.341574,
-		lng:108.93977,
+		lng: 108.93977,
 	},
 	{
 		name: 'Mercy',
 		placeID: 'ChIJGaK-SZcLkEcRA9wf5_GNbuY',
-		lat:47.3768866,
+		lat: 47.3768866,
 		lng: 8.541694,
 	},
 	{
-		name:'Pharah',
+		name: 'Pharah',
 		placeID: 'ChIJ5y6Y9_43WBQRhVOsj3ej8vI',
-		lat:29.9476555,
-		lng:31.2053963,
+		lat: 29.9476555,
+		lng: 31.2053963,
 	},
 	{
-		name:'Reaper',
+		name: 'Reaper',
 		placeID: 'ChIJE9on3F3HwoAR9AhGJW_fL-I',
 		lat: 34.0522342,
 		lng: -118.2436849,
 	},
 	{
 		name: 'Reinhardt',
-        placeID: 'ChIJ04-twTTbmUcR5M-RdxzB1Xk',
-        lat: 48.7758459,
-        lng: 9.1829321
+		placeID: 'ChIJ04-twTTbmUcR5M-RdxzB1Xk',
+		lat: 48.7758459,
+		lng: 9.1829321
 	},
 	{
 		name: 'Roadhog',
-        placeID: 'ChIJ38WHZwf9KysRUhNblaFnglM',
-        lat: -25.274398,
-        lng: 133.775136
+		placeID: 'ChIJ38WHZwf9KysRUhNblaFnglM',
+		lat: -25.274398,
+		lng: 133.775136
 	},
 	{
-		name:'Soldier 76'
+		name: 'Soldier 76'
 	},
 	{
 		name: 'Symmetra',
-        placeID: 'ChIJkbeSa_BfYzARphNChaFPjNc',
-        lat: 20.593684,
-        lng: 78.96288
+		placeID: 'ChIJkbeSa_BfYzARphNChaFPjNc',
+		lat: 20.593684,
+		lng: 78.96288
 	},
 	{
 		name: 'Torbjorn',
-        placeID: 'ChIJPwdslmeOT0YRQHwOKXiQAQQ',
-        lat: 57.70887,
-        lng: 11.97456
+		placeID: 'ChIJPwdslmeOT0YRQHwOKXiQAQQ',
+		lat: 57.70887,
+		lng: 11.97456
 	},
 	{
 		name: 'Tracer',
-        placeID: 'ChIJdd4hrwug2EcRmSrV3Vo6llI',
-        lat: 51.5073509,
-        lng: -0.1277583
+		placeID: 'ChIJdd4hrwug2EcRmSrV3Vo6llI',
+		lat: 51.5073509,
+		lng: -0.1277583
 	},
 	{
 		name: 'Widowmaker',
-        placeID: 'ChIJyVEFHPqPi0cRujQFYoEWeEI',
-        lat: 45.899247,
-        lng: 6.129384
+		placeID: 'ChIJyVEFHPqPi0cRujQFYoEWeEI',
+		lat: 45.899247,
+		lng: 6.129384
 	},
 	{
 		name: 'Winston',
-        placeID: 'ChIJNb4UJ3a_DA0RD4cANiYlTjg',
-        lat: 36.140751,
-        lng: -5.353585
+		placeID: 'ChIJNb4UJ3a_DA0RD4cANiYlTjg',
+		lat: 36.140751,
+		lng: -5.353585
 	},
 	{
 		name: 'Zarya',
-        placeID: 'ChIJ4zf_ocmv11wR_0fWj0bhl9U',
-        lat: 56.01528339999999,
-        lng: 92.8932476
+		placeID: 'ChIJ4zf_ocmv11wR_0fWj0bhl9U',
+		lat: 56.01528339999999,
+		lng: 92.8932476
 	},
 	{
 		name: 'Zenyatta',
-        placeID: 'ChIJz2gufcfolTkR3obM0LyaojQ',
-        lat: 28.394857,
-        lng: 84.12400799999999
+		placeID: 'ChIJz2gufcfolTkR3obM0LyaojQ',
+		lat: 28.394857,
+		lng: 84.12400799999999
 	},
 	{
 		name: 'Sombra',
-        placeID: 'ChIJU1NoiDs6BIQREZgJa760ZO0',
-        lat: 23.634501,
-        lng: -102.552784
+		placeID: 'ChIJU1NoiDs6BIQREZgJa760ZO0',
+		lat: 23.634501,
+		lng: -102.552784
 	},
 	{
 		name: 'Orisa',
-        placeID: 'ChIJDY2kfa8LThARyAvFaEH-qJk',
-        lat: 9.081999,
-        lng: 8.675277
+		placeID: 'ChIJDY2kfa8LThARyAvFaEH-qJk',
+		lat: 9.081999,
+		lng: 8.675277
 	}
 ]
 
 app.heroImages = [
 	{
-		name:'Ana',
+		name: 'Ana',
 		profile: `assets/Ana-portrait.png`,
 		full: `assets/Ana-full.png`
 	},
 	{
-		name:'Bastion',
-		profile:`assets/Bastion-portrait.png`,
+		name: 'Bastion',
+		profile: `assets/Bastion-portrait.png`,
 		full: `assets/Bastion-full.png`
 	},
 	{
-		name:'D.Va',
-		profile:`assets/D_va-portrait.png`,
+		name: 'D.Va',
+		profile: `assets/D_va-portrait.png`,
 		full: `assets/D_Va-full.png`
 	},
 	{
-		name:'Genji',
-		profile:`assets/Genji-portrait.png`,
-		full:`assets/Genji-full.png`,
+		name: 'Genji',
+		profile: `assets/Genji-portrait.png`,
+		full: `assets/Genji-full.png`,
 	},
 	{
-		name:'Hanzo',
-		profile:`assets/Hanzo-portrait.png`,
-		full:`assets/Hanzo-full.png`,
+		name: 'Hanzo',
+		profile: `assets/Hanzo-portrait.png`,
+		full: `assets/Hanzo-full.png`,
 	},
 	{
-		name:'Junkrat',
-		profile:`assets/Junkrat-portrait.png`,
-		full:`assets/Junkrat-full.png`
+		name: 'Junkrat',
+		profile: `assets/Junkrat-portrait.png`,
+		full: `assets/Junkrat-full.png`
 	},
 	{
-		name:'Lucio',
-		profile:`assets/Lucio-portrait.png`,
-		full:`assets/Lucio-full.png`,
+		name: 'Lucio',
+		profile: `assets/Lucio-portrait.png`,
+		full: `assets/Lucio-full.png`,
 	},
 	{
 		name: 'McCree',
-		profile:`assets/Mccree-portrait.png`,
-		full:`assets/Mccree-full.png`
+		profile: `assets/Mccree-portrait.png`,
+		full: `assets/Mccree-full.png`
 	},
 	{
-		name:'Mei',
-		profile:`assets/Mei-portrait.png`,
-		full:`assets/Mei-full.png`,
+		name: 'Mei',
+		profile: `assets/Mei-portrait.png`,
+		full: `assets/Mei-full.png`,
 	},
 	{
-		name:'Mercy',
-		profile:`assets/Mercy-portrait.png`,
-		full:`assets/Mercy-full.png`, 
+		name: 'Mercy',
+		profile: `assets/Mercy-portrait.png`,
+		full: `assets/Mercy-full.png`,
 	},
 	{
-		name:'Orisa',
-		profile:`assets/Orisa-portrait.png`,
-		full:`assets/Orisa-full.png`,
+		name: 'Orisa',
+		profile: `assets/Orisa-portrait.png`,
+		full: `assets/Orisa-full.png`,
 	},
 	{
-		name:'Pharah',
-		profile:`assets/Pharah-portrait.png`,
-		full:`assets/Pharah-full.png`,
+		name: 'Pharah',
+		profile: `assets/Pharah-portrait.png`,
+		full: `assets/Pharah-full.png`,
 	},
 	{
-		name:'Reaper',
-		profile:`assets/Reaper-portrait.png`,
-		full:`assets/Reaper-full.jpg`
+		name: 'Reaper',
+		profile: `assets/Reaper-portrait.png`,
+		full: `assets/Reaper-full.jpg`
 	},
 	{
 		name: 'Reinhardt',
@@ -302,17 +302,17 @@ app.apiKey = 'AIzaSyCeTIiHDXlITR2WjpJlf-1AigrB7Tl_r5U'
 app.getHero = () => {
 	$.ajax({
 		url: app.apiURL,
-      	method: 'GET',
-      	dataType: 'json',
-      	data: {
-			 format:'json',
-      }
-   })
-   .then((res)=> {
-		// console.log(res);
-		// console.log(res.data);
-		app.displayHero(res.data);
-   });
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			format: 'json',
+		}
+	})
+		.then((res) => {
+			// console.log(res);
+			// console.log(res.data);
+			app.displayHero(res.data);
+		});
 	$('.hero__card').empty();
 }
 
@@ -320,32 +320,32 @@ app.getLocation = (placeID, lat, lng) => {
 	$.ajax({
 		url: app.apiURLGeo,
 		method: 'GET',
-		dataType:'json',
+		dataType: 'json',
 		data: {
 			// format:'json',
 			place_id: placeID,
 			key: app.apiKey,
 		}
-	}).then((res)=>{
-		console.log(lat,lng);
-		app.initMap(lat,lng);
-		console.log(res);
+	}).then((res) => {
+		console.log(lat, lng);
+		app.initMap(lat, lng);
 	})
 }
 
-app.initMap = (lat,lng) => {
+app.initMap = (lat, lng) => {
 	// console.log('inside init map')
-	const location = { lat: lat, lng: lng }
+	const location = { lat: lat, lng: lng };
 	// The map, centered at location by lat and lng
 	let map = new google.maps.Map(
 		document.getElementById('map'), { zoom: 7, center: location });
+	document.getElementById('map').style.display = 'block';
 	// The marker, positioned at location by lat and lng
 	let marker = new google.maps.Marker({ position: location, map: map });
 }
 
 app.displayLocation = () => {
-	app.heroLocation.forEach((location)=>{
-		if(location.name === app.searchValueTitled) {
+	app.heroLocation.forEach((location) => {
+		if (location.name === app.searchValueTitled) {
 			// console.log(location.placeID)
 			app.getLocation(location.placeID, location.lat, location.lng)
 		}
@@ -355,51 +355,54 @@ app.displayLocation = () => {
 app.displayHero = (hero) => {
 	// console.log(hero)
 	hero.filter((heroType) => heroType.name === app.searchValueTitled)
-	.forEach((heroType)=>{
-		const heroHeading = $(`.hero__card__heading`);
-		const cardName = $(`<h4>${heroType.name}</h4>`);
+		.forEach((heroType) => {
+			const heroHeading = $(`.hero__card__heading`);
+			const cardName = $(`<h4>${heroType.name}</h4>`);
 
-		heroHeading.append(cardName)
+			heroHeading.append(cardName)
 
-		const selectHero = $('.hero__container');
-		const heroName = $(`<li><span>Name:</span> ${heroType.name}</li>`);
-		const realName = $(`<li><span>Real Name:</span> ${heroType.real_name}</li>`);
-		const age = $(`<li><span>Age:</span>${heroType.age}</li>`);
-		const height = $(`<li><span>Height:</span> ${heroType.height}</li>`);
-		const base = $(`<li class="location"><span>Base of Operations:</span> ${heroType.base_of_operations}</li>`);
-		const affl = $(`<li><span>Affiliation:</span> ${heroType.affiliation}</li>`);
-		const health = $(`<li><span>Health:</span> ${heroType.health}</li>`);
-		const armour = $(`<li><span>Armour:</span> ${heroType.armour}</li>`);
-		const shield = $(`<li><span>Shield:</span> ${heroType.shield}</li>`);
+			const selectHero = $('.hero__container');
+			const heroName = $(`<li><span>Name:</span> ${heroType.name}</li>`);
+			const realName = $(`<li><span>Real Name:</span> ${heroType.real_name}</li>`);
+			const age = $(`<li><span>Age:</span>${heroType.age}</li>`);
+			const height = $(`<li><span>Height:</span> ${heroType.height}</li>`);
+			const base = $(`<li class="location"><span>Base of Operations:</span> ${heroType.base_of_operations}</li>`);
+			const affl = $(`<li><span>Affiliation:</span> ${heroType.affiliation}</li>`);
+			const health = $(`<li><span>Health:</span> ${heroType.health}</li>`);
+			const armour = $(`<li><span>Armour:</span> ${heroType.armour}</li>`);
+			const shield = $(`<li><span>Shield:</span> ${heroType.shield}</li>`);
 
-		$('.hero__container').append(selectHero)
-		$('.search__results__card').on('click', function(){
-			$('.hero__info').empty();
-			$('.hero__info').append(heroName, realName, age, height, base, affl, health, armour, shield)
-			$('.hero__container').addClass('show');
-		})
-	});
+			$('.hero__container').append(selectHero)
+			$('.search__results__card').on('click', function () {
+				$('.hero__info').empty();
+				if (document.getElementById('map') != null) {
+					document.getElementById('map').style.display = 'none';
+				}
+				$('.hero__info').append(heroName, realName, age, height, base, affl, health, armour, shield)
+				$('.hero__container').addClass('show');
+			})
+		});
 }
 
 app.displayImages = () => {
 	app.heroImages.filter((imageFile) => imageFile.name === app.searchValueTitled)
-	// console.log(imageFile.name);
-	.forEach((imageFile) => {
-	const profileFigure = $('.hero__card')
-	const profilePic = $('<img>').attr('src', imageFile.profile);
-	profileFigure.append(profilePic)
-	const fullFigure = $('.hero__image')
-	const fullPic = $('<img>').attr('src', imageFile.full);
-	$('.search__results__card').on('click', function(){
-		$('.hero__image').empty();
-		fullFigure.append(fullPic)
+		// console.log(imageFile.name);
+		.forEach((imageFile) => {
+			const profileFigure = $('.hero__card')
+			const profilePic = $('<img>').attr('src', imageFile.profile);
+			profileFigure.append(profilePic)
+			const fullFigure = $('.hero__image')
+			const fullPic = $('<img>').attr('src', imageFile.full);
+			$('.search__results__card').on('click', function () {
+				$('.hero__image').empty();
+				fullFigure.append(fullPic)
+			})
 		})
-	})
 }
 
 
 app.events = () => {
-	$('.search__container').on('submit', function(e){
+	$('.search__container').on('submit', function (e) {
 		e.preventDefault();
 		$('.hero__card__heading').empty();
 		$('.search__results__heading, .search__results__card').addClass('show');
@@ -407,17 +410,17 @@ app.events = () => {
 		// put search value as Titled
 		app.searchValueTitled = app.searchValue.charAt(0).toUpperCase() + app.searchValue.substr(1).toLowerCase();
 		// For instances where name starts with Mc:
-		if(app.searchValueTitled.substr(0,2) === 'Mc' || app.searchValueTitled.substr(0,2) === 'D.') {
+		if (app.searchValueTitled.substr(0, 2) === 'Mc' || app.searchValueTitled.substr(0, 2) === 'D.') {
 			app.searchValueTitled = app.searchValue.charAt(0).toUpperCase() + app.searchValue.charAt(1).toLowerCase() + app.searchValue.charAt(2).toUpperCase() + app.searchValue.substr(3).toLowerCase();
 		}
 		app.getHero(app.searchValueTitled)
 		app.displayImages()
 		// console.log(app.searchValue);
-   	})
+	})
 	$('.hero__container').on('click', '.location', function () {
 		app.displayLocation(app.searchValueTitled);
 	})
-	$('.OW__Logo').on('click',function(){
+	$('.OW__Logo').on('click', function () {
 		$(this).addClass('shrink')
 		$('.input__bar--text').addClass('show');
 	});
@@ -428,7 +431,7 @@ app.events = () => {
 	})
 }
 
-app.init = function() {
+app.init = function () {
 	// console.log("It's working");
 	$('.hero__card__heading').empty();
 	app.getHero();
@@ -441,4 +444,3 @@ $(function () {
 	app.init();
 
 });
-
