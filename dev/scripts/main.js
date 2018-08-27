@@ -305,8 +305,8 @@ app.getHero = () => {
       	method: 'GET',
       	dataType: 'json',
       	data: {
-			 format:'json',
-      }
+			format:'json',
+     }
    })
    .then((res)=> {
 		// console.log(res);
@@ -329,16 +329,16 @@ app.getLocation = (placeID, lat, lng) => {
 	}).then((res)=>{
 		console.log(lat,lng);
 		app.initMap(lat,lng);
-		console.log(res);
 	})
 }
 
 app.initMap = (lat,lng) => {
 	// console.log('inside init map')
-	const location = { lat: lat, lng: lng }
+	const location = { lat: lat, lng: lng };
 	// The map, centered at location by lat and lng
 	let map = new google.maps.Map(
 		document.getElementById('map'), { zoom: 7, center: location });
+		document.getElementById('map').style.display = 'block';
 	// The marker, positioned at location by lat and lng
 	let marker = new google.maps.Marker({ position: location, map: map });
 }
@@ -375,6 +375,9 @@ app.displayHero = (hero) => {
 		$('.hero__container').append(selectHero)
 		$('.search__results__card').on('click', function(){
 			$('.hero__info').empty();
+			if(document.getElementById('map') != null) {
+				document.getElementById('map').style.display = 'none';
+			}
 			$('.hero__info').append(heroName, realName, age, height, base, affl, health, armour, shield)
 			$('.hero__container').addClass('show');
 		})
