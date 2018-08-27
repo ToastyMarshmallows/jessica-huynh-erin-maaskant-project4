@@ -8,13 +8,13 @@ $secondaryFont: 'Big Noodle Too';
 
 @mixin breakPoint($point) {
     @if $point == first-break {
-        @media (max-width:1300px) { @content;}
+        @media (max-width:1250px) { @content;}
     }
     @if $point == second-break {
-       @media (max-width:1240px) { @content;}
+       @media (max-width:1000px) { @content;}
     }
     @if $point == third-break {
-       @media (max-width:1090px) { @content;}
+       @media (max-width:950px) { @content;}
     }
     @if $point == fourth-break {
        @media (max-width:900px) { @content;}
@@ -49,32 +49,32 @@ $secondaryFont: 'Big Noodle Too';
     }
 }
 
+@keyframes revflash {
+    0% {
+        text-shadow:none;
+    }
+    25% {
+        text-shadow:2px 1px 3px $accentDark;
+    }
+    50% {
+        text-shadow:none;
+    }
+    100% {
+        text-shadow:2px 1px 3px $accentDark;
+    }
+}
+
 @keyframes flash {
     0% {
         text-shadow:none;
     }
     25% {
-        text-shadow:2px 2px 2px $accentDark;
+        text-shadow:2px 1px 2px $white;
     }
     50% {
         text-shadow:none;
     }
     100% {
-        text-shadow:2px 2px 2px $accentDark;
-    }
-}
-
-@keyframes revflash {
-      0% {
-        text-shadow:none;
-    }
-    25% {
-        text-shadow:2px 2px 2px $white;
-    }
-    50% {
-        text-shadow:none;
-    }
-    100% {
-        text-shadow:2px 2px 2px $white;
+        text-shadow:2px 1px 2px $white;
     }
 }
