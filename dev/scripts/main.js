@@ -402,7 +402,7 @@ app.events = () => {
 	$('.search__container').on('submit', function(e){
 		e.preventDefault();
 		$('.hero__card__heading').empty();
-		$('.search__results__heading').addClass('show');
+		$('.search__results__heading, .search__results__card').addClass('show');
 		app.searchValue = $('input[type=search]').val();
 		// put search value as Titled
 		app.searchValueTitled = app.searchValue.charAt(0).toUpperCase() + app.searchValue.substr(1).toLowerCase();
