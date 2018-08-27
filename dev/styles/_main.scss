@@ -32,7 +32,8 @@ main {
             }
             @include breakPoint(third-break) {
                 // display:none;
-                width:45%;
+                width:40%;
+                left:45%;
             }
         }
         .hero__info {
@@ -56,7 +57,7 @@ main {
             li {
                 @include paragraph-styles(1.8);
                 z-index:60;
-                border:1px solid cyan;
+                // border:1px solid cyan;
             }
             li span {
                 // border:1px solid orange;
@@ -78,15 +79,6 @@ main {
 
             }
         }
-    }
-}
-
-li span {
-    border:1px solid red;
-    position:initial;
-    
-    @include breakPoint(third-break) {
-        position:normal;
     }
 }
 
