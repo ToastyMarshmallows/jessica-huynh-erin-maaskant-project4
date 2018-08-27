@@ -19,6 +19,9 @@ header {
         display:flex;
         justify-content: center;
         align-items: center;
+        .sign__out {
+            display:none;
+        }
         .OW__Logo.shrink {
             width:5%;
             // border:1px solid red;
@@ -85,6 +88,22 @@ header.fixed {
             @include breakPoint(fourth-break) {
                 width:10%;
             }
+        }
+    }
+    .sign__out {
+        display:block;
+        position: fixed;
+        font-size:3rem;
+        right:20px;
+        top:35px;
+        transition:color 0.3s ease-in-out;
+        z-index:50;
+        color:$white;
+        &:hover {
+            color:$accentDark;
+        }
+        @include breakPoint(fourth-break) {
+            font-size:2rem;
         }
     }
     .wrapper {
