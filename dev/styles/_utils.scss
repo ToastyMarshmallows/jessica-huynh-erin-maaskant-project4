@@ -17,17 +17,14 @@ $secondaryFont: 'Big Noodle Too';
        @media (max-width:950px) { @content;}
     }
     @if $point == fourth-break {
-       @media (max-width:900px) { @content;}
+       @media (max-width:800px) { @content;}
     }
     @if $point == fifth-break {
-       @media (max-width:750px) { @content;}
-    }
-      @if $point == sixth-break {
        @media (max-width:600px) { @content;}
     }
-      @if $point == seventh-break {
-       @media (max-width:450px) { @content;}
-}
+      @if $point == sixth-break {
+       @media (max-width:500px) { @content;}
+    }
 }
 
 

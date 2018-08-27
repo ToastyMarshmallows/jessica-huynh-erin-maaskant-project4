@@ -13,7 +13,14 @@ main {
         height:85vh;
         position: relative;
         @include breakPoint(third-break) {
-            height:70vh;
+            height:100%;
+        }
+         @include breakPoint(fourth-break) {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+        }
+        @include breakPoint(fifth-break) {
+            grid-template-rows: 1fr 1fr 1fr;
         }
         .hero__image {
             // border:1px solid white;
@@ -25,15 +32,25 @@ main {
                 transform: rotateY(-10deg);
                 transition: transform 1s ease;
             }
-            @include breakPoint(second-break) {
+            @include breakPoint(first-break) {
                 position:fixed;
-                width:50%;
-                left:35%;
+                width:40%;
+                left:45%;
+            }
+            @include breakPoint(second-break) {
+                width:45%;
+                left:40%;
             }
             @include breakPoint(third-break) {
                 // display:none;
                 width:40%;
-                left:45%;
+            }
+            @include breakPoint(fourth-break) {
+                position:relative;
+                // left:30%;
+                grid-row:1;
+                width:70%;
+                left:10%;
             }
         }
         .hero__info {
@@ -44,7 +61,14 @@ main {
             text-align: right;
             position:absolute;
             top:0;
-            width:100%;  
+            width:100%; 
+            @include breakPoint(fourth-break) {
+                height:100%;
+            } 
+            @include breakPoint(fifth-break) {
+                position: relative;
+                height:auto;
+            }
             .location {
                 animation:flash 3s infinite;
                 transition:all 0.5s;
@@ -55,8 +79,11 @@ main {
                 }
             }
             li {
-                @include paragraph-styles(1.8);
                 z-index:60;
+                @include paragraph-styles(1.8);
+                @include breakPoint(fifth-break) {
+                    @include paragraph-styles(1.4)
+                }
                 // border:1px solid cyan;
             }
             li span {
@@ -64,8 +91,11 @@ main {
                 position: absolute;
                 left:20px;
                 font-family: "Big Noodle Too";
-                @include title-styles(2.75);
                 line-height:1;
+                @include title-styles(2.75);
+                @include breakPoint(fifth-break) {
+                    @include title-styles(2);
+                }
                 }
         }
         #map {
@@ -80,6 +110,11 @@ main {
             }
         }
     }
+    @include breakPoint(fourth-break) {
+        // border:1px solid red;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 1fr;
+    }
 }
 
 .hero__container.show {
@@ -92,6 +127,7 @@ main {
 
 aside {
     border:1px dotted $logoGrey;
+    // border:1px solid cyan;
     background:rgba(0,0,0,0.5);
     display: grid;
     grid-template-columns: 1fr;
@@ -105,6 +141,7 @@ aside {
         align-items: center;
         justify-content: center;
         display:none;
+        text-align: center;
     }
     .search__results__heading.show {
         display:flex;
@@ -119,7 +156,6 @@ aside {
         &:hover {
             // border:1px solid $accentDark;
             background:rgba(0,0,0,0.3);
-            
             h4 {
                 color:$white;
             }
@@ -132,14 +168,23 @@ aside {
         grid-row-start:4;
     }
     @include breakPoint(third-break) {
-        grid-template-rows: 100px 0.5fr 1fr;
-        height:70vh;
+        grid-template-rows: 100px 100px;
+        height:100%;
     }
+    @include breakPoint(fourth-break) {
+        height:35vh;
+    }
+}
 
+.hero__card {
+    @include breakPoint(fourth-break) {
+        display:none;
+    }
 }
 
 .search__wrapper {
     width:100%;
+    height:100%;
     margin-top:5px;
     .search__container {
         // border:1px solid red;
@@ -165,6 +210,9 @@ aside {
             text-align: center;
             width:75%;
         }
+        @include breakPoint(fourth-break) {
+            width:90%;
+        }
     }
     .input__submit {
         width:30%;
@@ -172,13 +220,16 @@ aside {
         color:$white;
         border:2px solid $accentDark;
         transition:background 0.3s ease-in-out;
-        padding:10px 15px;
+        padding:10px;
         &:hover {
             background:$accentDark;
             
         }
         @include breakPoint(third-break) {
-            width:80%;
+            width:85%;
+        }
+        @include breakPoint(fourth-break) {
+            width:95%;
         }
     }
 }
