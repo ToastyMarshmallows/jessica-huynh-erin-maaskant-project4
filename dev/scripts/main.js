@@ -1,23 +1,3 @@
-// We want to create a hero database where the user searches the heroes and the hero information is returned into the html
-// search by name
-// search by affliation
-// stretch - user can search via pinpoints on map and include the distance between user and hero's base of operation
-
-// 1. Get hero data from the Overwatch API
-// hero name, real name, age, height, health, armour, shield, affliation, and base of operations, description
-// 2. Display their info on the page
-
-// Hero Images 
-// Create an empty array to store hero images
-
-// Set up user search form
-
-// Display hero information upon user's search
-// Also display hero images with hero information
-
-// Stretch - on the click of hero's base of operations, display hero location with google maps API
-// second search method - display pinpoints of hero's base of operations on a world map, when the user click's the pin, display hero information 
-
 const app = {}
 
 app.heroLocation = [
@@ -26,7 +6,6 @@ app.heroLocation = [
 		placeID: 'ChIJ674hC6Y_WBQRujtC6Jay33k',
 		lat: 30.0444196,
 		lng: 31.2357116,
-		// profile: url('../assets/Ana-full-flat.png'),
 	},
 	{
 		name: 'Bastion'
@@ -293,8 +272,6 @@ app.heroImages = [
 
 app.heroInfo = {}
 
-// app.searchValue = $('input[type=search]').val();
-
 app.apiURL = 'https://overwatch-api.net/api/v1/hero'
 app.apiURLGeo = 'https://maps.googleapis.com/maps/api/geocode/json'
 app.apiKey = 'AIzaSyCeTIiHDXlITR2WjpJlf-1AigrB7Tl_r5U'
@@ -309,8 +286,6 @@ app.getHero = () => {
 		}
 	})
 		.then((res) => {
-			// console.log(res);
-			// console.log(res.data);
 			app.displayHero(res.data);
 		});
 	$('.hero__card').empty();
@@ -322,7 +297,6 @@ app.getLocation = (placeID, lat, lng) => {
 		method: 'GET',
 		dataType: 'json',
 		data: {
-			// format:'json',
 			place_id: placeID,
 			key: app.apiKey,
 		}
@@ -353,7 +327,6 @@ app.displayLocation = () => {
 }
 
 app.displayHero = (hero) => {
-	// console.log(hero)
 	hero.filter((heroType) => heroType.name === app.searchValueTitled)
 		.forEach((heroType) => {
 			const heroHeading = $(`.hero__card__heading`);

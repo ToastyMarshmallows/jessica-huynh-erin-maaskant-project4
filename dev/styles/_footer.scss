@@ -1,0 +1,13 @@
+footer {
+    position: relative;
+    section {
+        background:rgba(0,0,0,0.6);
+        padding:1.5rem;
+        position: fixed;
+        bottom:0;
+        font-size:2rem;
+        // border:1px solid red;
+        width:100%;
+        text-align: center;
+    }
+}

@@ -4,7 +4,6 @@ $secondaryDark: #218ffe;
 $accentDark: #fc9e00;
 $logoGrey: #484848;
 
-$secondaryFont: 'Big Noodle Too';
 
 @mixin breakPoint($point) {
     @if $point == first-break {
